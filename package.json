@@ -1,0 +1,12 @@
+{
+  "name": "metal-prices-frontend",
+  "version": "1.0.0",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
+  },
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css"
+  }
+}

@@ -1,0 +1,170 @@
+@import "tailwindcss";
+/* yekanbakh 500 mikhim bra hrja font-medium hst */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: yekanbakh;
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url('../assets/fonts/YekanBakh/YekanBakh-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: yekanbakh;
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('../assets/fonts/YekanBakh/YekanBakh-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: yekanbakh;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../assets/fonts/YekanBakh/YekanBakh-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: yekanbakh;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../assets/fonts/YekanBakh/YekanBakh-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: yekanbakh;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../assets/fonts/YekanBakh/YekanBakh-Bold.ttf') format('truetype');
+}
+
+/* English */
+@font-face {
+    font-family: IBMPlexSans;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../assets/fonts/IBMPlexSans/IBMPlexSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: IBMPlexSans;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: IBMPlexSans;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf') format('truetype');
+}
+
+
+
+
+
+
+
+
+@theme {
+    --color-gold: #9b8600;
+    --color-background: #f0f0f0;
+    --color-forground: #151514;
+
+    /* p & footer */
+    --color-dark-gray: #838383;
+    /* table border */
+    --color-dim-gray: #707070;
+
+    --color-karaka: #262623;
+    /* hover */
+    --color-light-yellow: #faeaa4;
+    --color-yellow: #ffc700;
+
+    --text-2.5xl: 1.75rem;
+    --text-1.5xl: 1.35rem;
+    /* 992px */
+    --breakpoint-ml: 62rem;
+    --tw-ease: ease;
+    --tw-duration: .2s;
+    /* dark */
+    --color-yriel-yellow: #f8d25c;
+    --color-dark-olive-gray: #31312f;
+    --color-philippine-silver: #b3b3b3;
+
+}
+
+@layer theme {
+    .dark {
+        --color-forground: #ffffff;
+        --color-background: #151514;
+        --color-gold: var(--color-yriel-yellow)
+    }
+}
+
+@utility font-yekanbakh {
+    font-family: 'yekanbakh';
+}
+
+@utility font-IBMPlexSans {
+    font-family: 'IBMPlexSans';
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-forground);
+    font-family: 'yekanbakh';
+}
+
+@utility container {
+    margin: auto;
+    max-width: unset;
+
+    @media (max-width: 992px) {
+        padding-inline: 24px;
+    }
+
+    @media (min-width: 992px) {
+        padding-inline: 50px;
+    }
+
+}
+
+/* public */
+input,
+button,
+summary {
+    outline: unset;
+}
+
+summary {
+    cursor: pointer
+}
+
+
+h2,
+h4,
+h5,
+h6 {
+    @apply font-semibold;
+}
+
+h1 {
+    @apply text-2.5xl;
+}
+
+h2 {
+    @apply max-ml:text-xl ml:text-2xl;
+}
+
+h3 {
+    @apply ml:text-1.5xl max-ml:text-lg;
+}
