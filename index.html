@@ -8,8 +8,8 @@
     <link href="./css/output.css" rel="stylesheet">
 </head>
 
-<body>
-    <header class="top-0 fixed inset-x-0 bg-background">
+<body class="dark">
+    <header class="top-0 z-10 fixed inset-x-0 bg-background">
         <div class="flex justify-between items-center ml:my-2 max-ml:py-4.5 container">
             <iframe class="max-ml:hidden bg-white dark:bg-karaka rounded-md w-50 h-15" scrolling="no"
                 allowtransparency="true" frameborder="0" src="https://daralsabaek.com/trading-gold-light.html"></iframe>
@@ -66,27 +66,27 @@
                 </svg>
             </div>
         </div>
-        <div class="py-2 border-white border-y-3">
+        <div class="ml:hidden py-2 border-white border-y-3">
             <iframe class="bg-white w-full h-24" src="https://daralsabaek.com/trading-gold-mobile.html" scrolling="no"
                 allowtransparency="true" frameborder="0"></iframe>
         </div>
         <nav class="max-ml:hidden border-[#81818143] border-y container">
             <ul class="flex items-center gap-14 mt-2.5 font-medium">
                 <li
-                    class="relative flex justify-between items-center bg-white dark:bg-karaka px-3 py-3.5 rounded-t-xl min-w-50">
+                    class="group relative flex justify-between items-center bg-white dark:bg-karaka px-3 py-3.5 rounded-t-xl min-w-50">
                     <span class="flex items-center gap-4">
-                        <svg id="menu" xmlns="http://www.w3.org/2000/svg" width="15" height="24" viewBox="0 0 16 24">
-                            <g id="menu-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="24" viewBox="0 0 16 24">
+                            <g>
                                 <path
                                     d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
                                     transform="translate(2.25 6.25)" fill="currentColor" />
-                                <path id="Vector-2" data-name="Vector"
+                                <path
                                     d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
                                     transform="translate(2.25 11.25)" fill="currentColor" />
-                                <path id="Vector-3" data-name="Vector"
+                                <path
                                     d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
                                     transform="translate(2.25 16.25)" fill="currentColor" />
-                                <path id="Vector-4" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0" />
+                                <path d="M0,0H24V24H0Z" fill="none" opacity="0" />
                             </g>
                         </svg>
                         مغازه
@@ -96,8 +96,15 @@
                             d="M1.64.808a.638.638,0,0,0-.915,0c-.276.258-.681.365-.405.623L4.56,5.389a.744.744,0,0,0,.977.02L9.778,1.78A.629.629,0,0,0,9.822.848a.743.743,0,0,0-1-.041l-3.742,3.2Z"
                             transform="translate(-0.228 -0.615)" fill="currentColor" />
                     </svg>
-
-                    <ul class="absolute"></ul>
+                    <ul
+                        class="top-13 right-0 absolute flex bg-background rounded-[5px] overflow-y-auto font-normal will-change-transform">
+                        <div class="bg-white">
+                            <div class="flex flex-col">
+                                <span class="text-dark-gray text-sm">کاتالوگها</span>
+                                <li class="px-4 py-2">تست</li>
+                            </div>
+                        </div>
+                    </ul>
                 </li>
                 <li class="hover:text-light-yellow transition-colors">
                     <a href="http://" title="">خانه</a>
@@ -120,78 +127,33 @@
             </ul>
         </nav>
     </header>
-    <main class="mb-15 max-ml:pt-46.5 ml:pt-35">
+    <main class="mb-9 max-ml:pt-46.5 ml:pt-35">
         <div class="flex justify-center items-center gap-5 my-10">
             <span class="bg-gold w-7.5 h-[3px]"></span>
-            <h1 class="font-normal">درباره ما</h1>
+            <h1 class="font-normal">سوالات متداول</h1>
             <span class="bg-gold w-7.5 h-[3px]"></span>
         </div>
-        <div class="bg-white dark:bg-dark-olive-gray max-lg:mx-32 max-ml:mx-6 ml:lg:mx-39 p-5 rounded-2xl">
-            <h2 class="mb-2 py-3 text-gold text-center">مجموعه دارالسبائک</h2>
-            <h3 class="font-normal text-center">تأسیس شده در کشور کویت، تحت شماره ثبت تجاری ۴۳۲۹۶۸ صادر شده توسط وزارت
-                بازرگانی و
-                صنایع.</h3>
-            <ul class="flex flex-col gap-7.5 ps-[15px] pt-8 text-[15px] marker:text-gold list-disc">
-                <li>اولین و تنها شرکت طلایی که برای تمام وب‌سایت‌های خود از وزارت اطلاعات مجوز شماره ۴۲۹ دریافت کرده
-                    است.</li>
-                <li>اولین شرکت طلا در کویت که گواهینامه ISO 9001:2015، استاندارد پیشرو و معتبر جهانی، مبتنی بر اصول
-                    مدیریت کیفیت مورد استفاده سازمان‌های جهانی برای بهبود عملکرد و افزایش رضایت مشتری را دریافت کرد.
-                </li>
-                <li>اولین شرکت طلا که مشتریان می‌توانند از طریق وب‌سایت یا اپلیکیشن شرکت، به صورت الکترونیکی خرید، فروش
-                    و معامله کنند. دار السبایک همچنین گواهینامه استاندارد بین‌المللی ISO/IEC 270001:2013 را برای مدیریت
-                    امنیت اطلاعات (امنیت سایبری) اخذ کرده است.</li>
-                <li>اپلیکیشن دارالسبایک رسماً در کتابخانه ملی کویت و سازمان حفاظت از مالکیت معنوی به عنوان اولین وب‌سایت
-                    تخصصی طلا طبقه‌بندی شده است.</li>
-                <li>موسسه آموزش خصوصی دار السبایک توسط وزارت بازرگانی و اداره عمومی آموزش و پرورش کاربردی تأسیس و مجوز
-                    آن صادر شده است تا از طریق دوره‌های تخصصی در زمینه طلا و سرمایه‌گذاری و همچنین دوره‌های فنی تخصصی در
-                    زمینه مبارزه با پولشویی به مشتریان خدمت‌رسانی کند.</li>
-                <li>شرکت مشاوره تجاری دارالصبایک نیز برای خدمت به فعالیت‌های تجاری شرکت در ارائه خدمات مشاوره اقتصادی به
-                    مشتریان و ارائه خدمات تخصصی مشاوره تجاری به افراد و شرکت‌ها تأسیس شد.</li>
-                <li>شرکت خدمات فنی و کامپیوتری دارالسبایک به منظور خدمت رسانی ویژه به فعالیت های شرکت و توسعه سیستم
-                    فناوری و توسعه دیجیتال شرکت و همچنین تجارت طلائی شرکت های محلی و بین المللی تأسیس شد.</li>
-            </ul>
-            <div class="flex flex-col gap-16 pt-14 ml:text-1.5xl max-ml:text-lg">
-                <p>این شرکت به طیف گسترده‌ای از مشتریانی که به دنبال طرح‌های پس‌انداز و معاملاتی هستند، سرمایه‌گذاران
-                    نخبه، فروشگاه‌های جواهرات و بانک‌ها خدمات ارائه می‌دهد.</p>
-                <p>این مسیر به شکلی موفق در مدیریت فعالیت تجارت شمش‌های طلا و طلای زینتی پیشرفت کرده است، و خدمات و
-                    محصولات ما مطابق با شریعت اسلامی می‌باشد. ما از تمام جامعه دعوت می‌کنیم تا به پس‌انداز، سرمایه‌گذاری
-                    و تجارت نقدی در شمش‌ها و طلا به‌طور کلی و قطعاتی که با استانداردهای توزیع مناسب مطابقت دارند،
-                    بپردازند. ما تمامی جنبه‌های مالی و تجاری فلزات گرانبها را با اطمینان بنا می‌کنیم، و تجارت طلا، فلزات
-                    گرانبها، طلای زینتی و سنگ‌های قیمتی، هسته اصلی فعالیت تجاری ما محسوب می‌شود.</p>
-                <p>چشم‌انداز شرکت: تبدیل شدن به انتخاب ارجح برای سرمایه‌گذاران حقیقی و حقوقی که به دنبال خدمات متمایز و
-                    تجارت شمش و جواهرات هستند.</p>
-                <p>ما همواره بر آن هستیم که رابطه‌ای مبتنی بر اعتماد متقابل میان مجموعه‌مان و مشتریان ایجاد و حفظ کنیم،
-                    و به اندازه کافی به مزایای حاصل از این اعتماد اطمینان داریم. به همین دلیل، تعهد دائمی ما نسبت به
-                    مشتریانمان به دستاوردی بی‌نقص منجر شده و ما را در صدر بازار تجارت فلزات گرانبها در کویت قرار داده
-                    است. آنچه ما را متمایز می‌سازد، پذیرش جدیدترین نوآوری‌ها و پیشرفت‌های فناوری از طریق خرید اینترنتی
-                    از وب‌سایت شرکت و نیز افزودن طراحی‌های انحصاری در مصنوعات طلایی و همچنین شمش‌های طلا است.</p>
-                <p>خدمات ما حول خرید و فروش فلزات گرانبها و همچنین تحویل شمش فلزات گرانبها، سکه و طلای زینتی از طریق
-                    وسایل نقلیه حمل و نقل نقدی کاملاً بیمه شده می‌چرخد و محیطی مناسب برای سرمایه‌گذاری در این زمینه را
-                    برای سرمایه‌گذاران، چه افراد، شرکت‌ها یا بخش‌های بانکی، فراهم می‌کند.</p>
-            </div>
-            <table
-                class="mt-15 border border-dim-gray rounded-[10px] w-full text-1.5xl border-separate border-spacing-0">
-                <thead>
-                    <tr>
-                        <td class="p-[15px] border-dim-gray border-e border-b">حسابرس شرکت</td>
-                        <td class="p-[15px] border-dim-gray border-b">KPMG</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="p-[15px] border-dim-gray border-e border-b">نماینده قانونی</td>
-                        <td class="p-[15px] border-dim-gray border-b">مشاوره حقوقی ارکان</td>
-                    </tr>
-                    <tr>
-                        <td class="p-[15px] border-dim-gray border-e border-b">شرکت بیمه</td>
-                        <td class="p-[15px] border-dim-gray border-b">بیمه کویت</td>
-                    </tr>
-                    <tr>
-                        <td class="p-[15px] border-dim-gray border-e">تحویل</td>
-                        <td class="p-[15px]">شرکت انتقال پول (خودروهای زرهی)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="flex flex-col gap-2.5 max-lg:mx-32 max-ml:mx-6 ml:lg:mx-43.5 rounded-2xl">
+            <details>
+                <summary class="bg-white active:bg-transparent dark:bg-karaka py-2.75 rounded-[10px] font-normal">ساعات کاری شرکت چگونه
+                    است؟</summary>
+                <div class="bg-white dark:bg-karaka py-4 ps-[7%] pe-4 border-foggy-gray border-t rounded-[10px] text-[13px]">
+                    ساعات کاری شوروم اصلی (برج بیتاک): از شنبه تا پنجشنبه، از ساعت ۹ صبح تا ۹ شب. جمعه‌ها
+                    (تعطیل)————————— ساعات کاری شعبه بازار طلای مرکزی: از شنبه تا پنجشنبه، از ساعت ۱۰ صبح تا ۱:۳۰ بعد از
+                    ظهر، از ساعت ۴ بعد از ظهر تا ۹ شب، جمعه، از ساعت ۵ بعد از ظهر تا ۹ شب————————— ساعات کاری شعبه
+                    اَوِنیوز مال: همه روزه از ساعت ۱۰ صبح تا ۱۰ شب پنجشنبه و جمعه از ساعت ۱۰ صبح تا ۱۱ شب
+                    ———————————ساعات کاری شعبه گیت مال همه روزه از ساعت ۱۰ صبح تا ۱۰ شب، پنجشنبه و جمعه از ساعت ۱۰ صبح
+                    تا ۱۱ شب —————————— ساعات کاری شعبه سوق شرق همه روزه از ساعت ۱۰ صبح تا ۱۰ شب است
+                </div>
+            </details>
+            <details>
+                <summary class="bg-white active:bg-transparent dark:bg-karaka py-2.75 rounded-[10px] font-normal">مبلغ مجاز برای پرداخت
+                    نقدی چقدر است؟
+                </summary>
+                <div class="bg-white dark:bg-karaka py-4 ps-[7%] pe-4 border-foggy-gray border-t rounded-[10px] text-[13px]">
+                    طبق اعلام وزارت بازرگانی کویت، فقط تراکنش‌های نقدی تا سقف ۳۰۰۰ دینار کویتی در روز مجاز است.
+                </div>
+            </details>
         </div>
     </main>
     <footer>
@@ -200,7 +162,7 @@
             <a href="http://" title="" class="max-ml:w-full ml:w-1/4">
                 <img class="w-[150px]" src="./assets/images/footerLogo.png" />
             </a>
-            <div class="flex max-ml:mt-6.5 max-ml:w-full ml:w-3/4">
+            <div class="flex items-center max-ml:mt-6.5 max-ml:w-full ml:w-3/4">
                 <div class="flex max-ml:flex-col max-ml:justify-around gap-5 max-ml:w-[54.5%] ml:w-2/3">
                     <div class="flex flex-col gap-3 w-1/2">
                         <a href="http://" title="" class="hover:text-light-yellow transition-colors">درباره
@@ -216,7 +178,8 @@
                     </div>
                 </div>
                 <div class="max-ml:w-[45.5%] ml:w-1/3 font-semibold">
-                    دانلود برنامه از
+                    <span class="block">
+                        دانلود برنامه از</span>
                     <div class="flex max-ml:flex-col gap-5 font-IBMPlexSans" dir="ltr">
                         <svg class="max-ml:size-full" id="enappstore" xmlns="http://www.w3.org/2000/svg" width="160"
                             height="42" viewBox="0 0 160 42">
@@ -323,14 +286,53 @@
         </svg>
         کمک
     </a>
-    <span class="right-2.5 bottom-2.5 fixed opacity-30 hover:opacity-100 p-1 border-2 border-gold rounded-full">
+    <button class="right-2.5 bottom-2.5 fixed opacity-30 hover:opacity-100 p-1 border-2 border-gold rounded-full">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="#f8d25c" />
             <path
                 d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
                 fill="#f8d25c" />
         </svg>
-    </span>
+    </button>
+    <script>
+        document.querySelectorAll("details").forEach((el) => {
+            const content = el.querySelector("div");
+
+            el.addEventListener("toggle", () => {
+                // فقط یکی باز باشه
+                if (el.open) {
+                    document.querySelectorAll("details").forEach((other) => {
+                        if (other !== el) {
+                            other.removeAttribute("open");
+                            const otherContent = other.querySelector("div");
+                            if (otherContent) {
+                                otherContent.style.height = "0px";
+                            }
+                        }
+                    });
+
+                    content.style.height = "0px";
+                    content.style.transition = "height 0.35s ease";
+                    requestAnimationFrame(() => {
+                        content.style.height = content.scrollHeight + "px";
+                    });
+                } else {
+                    content.style.height = content.scrollHeight + "px";
+                    requestAnimationFrame(() => {
+                        content.style.height = "0px";
+                    });
+                }
+            });
+
+            // وقتی انیمیشن تموم شد و باز موند، height → auto برای رسپانسیو
+            content.addEventListener("transitionend", () => {
+                if (el.open) {
+                    content.style.height = "auto";
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

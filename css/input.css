@@ -89,6 +89,9 @@
     --color-light-yellow: #faeaa4;
     --color-yellow: #ffc700;
 
+
+
+    --color-foggy-gray: #97959543;
     --text-2.5xl: 1.75rem;
     --text-1.5xl: 1.35rem;
     /* 992px */
@@ -118,10 +121,18 @@
     font-family: 'IBMPlexSans';
 }
 
+@utility shadow-md {
+    box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, .15);
+}
+
 body {
     background: var(--color-background);
     color: var(--color-forground);
     font-family: 'yekanbakh';
+}
+
+main {
+    min-height: 100dvh;
 }
 
 @utility container {
@@ -149,6 +160,9 @@ summary {
     cursor: pointer
 }
 
+button {
+    cursor: pointer;
+}
 
 h2,
 h4,
@@ -167,4 +181,55 @@ h2 {
 
 h3 {
     @apply ml:text-1.5xl max-ml:text-lg;
+}
+
+
+@keyframes fade-move-up {
+    0% {
+        margin-top: .75rem;
+        opacity: 0
+    }
+
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+
+
+
+/* faq */
+summary {
+    display: flex;
+    position: relative;
+    padding-inline-start: 55px;
+}
+
+summary::before {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22.045" height="22.045" viewBox="0 0 22.045 22.045"><g id="open" transform="translate(865)"><g id="add-square" transform="translate(-865)"><path id="Vector" d="M15.641,0H6.4C2.392,0,0,2.392,0,6.4V15.63c0,4.023,2.392,6.415,6.4,6.415H15.63c4.012,0,6.4-2.392,6.4-6.4V6.4C22.045,2.392,19.653,0,15.641,0Zm-.209,11.849H11.849v3.582a.827.827,0,1,1-1.653,0V11.849H6.613a.827.827,0,0,1,0-1.653H10.2V6.613a.827.827,0,1,1,1.653,0V10.2h3.582a.827.827,0,0,1,0,1.653Z" transform="translate(0.001 0)" fill="%23747474"/><path id="Vector-2" data-name="Vector" d="M0,0H22.045V22.045H0Z" transform="translate(22.045 22.045) rotate(180)" fill="none" opacity="0"/></g></g></svg>');
+    transition: 0.2s;
+    inset-inline-start: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+details[open]>summary::before {
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22.045' height='22.045' viewBox='0 0 22.045 22.045'><g id='close'><g id='minus-square'><g id='Rectangle_11597' transform='translate(4.045 5)' fill='%23f8d25c' stroke='%23707070' stroke-width='1'><rect width='13' height='13' stroke='none'/><rect x='0.5' y='0.5' width='12' height='12' fill='none'/></g><path id='Vector' d='M15.648,0H6.407C2.393,0,0,2.392,0,6.4V15.63c0,4.023,2.393,6.415,6.407,6.415h9.23c4.014,0,6.407-2.392,6.407-6.4V6.4C22.055,2.392,19.662,0,15.648,0Zm-.21,11.849H6.617a.827.827,0,1,1,0-1.653h8.822a.827.827,0,1,1,0,1.653Z' transform='translate(0.001)' fill='%23413718'/><path id='Vector-2' d='M0,0H22.045V22.035H0Z' transform='translate(22.045 22.035) rotate(180)' fill='none' opacity='0'/></g></g></svg>");
+}
+
+details>div>div {
+    overflow: hidden;
+    padding-inline-start: 7%;
+    height: 0;
+    padding-inline-end: 16px;
+    border-radius: 10px
+}
+
+details.open>div>div {
+    @apply py-4 border-foggy-gray border-t h-auto;
 }
