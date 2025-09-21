@@ -104,6 +104,7 @@
     --tw-ease: ease;
     --tw-duration: .2s;
     /* dark */
+    --color-gray:#808080;
     --color-yriel-yellow: #f8d25c;
     --color-dark-olive-gray: #31312f;
     --color-philippine-silver: #b3b3b3;
@@ -119,6 +120,13 @@
     }
 }
 
+/* هروقت سیستم دارکه */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
 @utility font-yekanbakh {
     font-family: 'yekanbakh';
 }

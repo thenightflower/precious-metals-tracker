@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
@@ -11,6 +11,418 @@
 <body class="dark">
  
 
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماشین حساب قیمت طلا</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .title {
+            color: #d4af37;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .input-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .input-wrapper {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .input-wrapper span {
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-left: 1px solid #ddd;
+            color: #666;
+        }
+        
+        .input-wrapper input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            direction: ltr;
+            text-align: right;
+        }
+        
+        .update-info {
+            text-align: center;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .update-time {
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #d4af37;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .price-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 7px;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .card-title {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .price-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .price-value {
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .currency {
+            margin-right: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #e74c3c;
+            background: #fadbd8;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .calculated-result {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .calculated-result h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .calculated-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">قیمت طلا برای مشتریان دارالسبایک</h1>
+        </div>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="gram">مقدار را بر حسب گرم وارد کنید</label>
+                <div class="input-wrapper">
+                    <span>گرم</span>
+                    <input type="number" name="gram" id="gram" value="1" placeholder="مقدار گرم را وارد کنید" oninput="updatePricesInCards()">
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="updateInfo" class="update-info" style="display: none;">
+            <span>قیمت‌ها ظرف <span style="color: #d4af37;">15</span> ثانیه با توجه به قیمت جهانی به‌روزرسانی می‌شوند.</span>
+            <span id="updateTime" class="update-time">در حال بارگذاری...</span>
+        </div>
+        
+        <div id="loading" class="loading">
+            در حال بارگذاری قیمت‌ها...
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            خطا در دریافت قیمت‌ها. لطفاً دوباره تلاش کنید.
+        </div>
+        
+        <div id="pricesContainer" class="prices-grid" style="display: none;">
+            <!-- قیمت‌ها اینجا نمایش داده می‌شوند -->
+        </div>
+    </div>
+
+    <script>
+        // متغیر برای ذخیره داده‌های قیمت
+        let priceData = null;
+
+        // دریافت قیمت‌ها از API
+        const fetchPrices = async () => {
+            try {
+                const res = await fetch("https://api.daralsabaek.com/api/goldAndFundBalance/getMetalSellAndBuyPrices");
+                const data = await res.json();
+                
+                if (data.succeeded) {
+                    priceData = data.result;
+                    displayPrices(priceData);
+                    updateTime();
+                    showUpdateInfo();
+                    hideLoading();
+                } else {
+                    throw new Error(data.message || 'خطا در دریافت داده‌ها');
+                }
+            } catch (error) {
+                console.error("خطا در دریافت داده‌ها:", error);
+                showError();
+                hideLoading();
+            }
+        };
+
+        // نمایش قیمت‌ها در صفحه
+        const displayPrices = (data) => {
+            const container = document.getElementById('pricesContainer');
+            
+            const priceCards = [
+                {
+                    title: 'طلای ۲۴ عیار',
+                    buyPrice: data.purchaseGoldPrice,
+                    sellPrice: data.sellGoldPrice,
+                    icon: 'Au24',
+                    id: 'gold24'
+                },
+                {
+                    title: 'طلای ۲۲ عیار', 
+                    buyPrice: data.purchase22GoldPrice,
+                    sellPrice: data.sell22GoldPrice,
+                    icon: 'Au22',
+                    id: 'gold22'
+                },
+                {
+                    title: 'طلای ۲۱ عیار',
+                    buyPrice: data.purchase21GoldPrice,
+                    sellPrice: data.sell21GoldPrice,
+                    icon: 'Au21',
+                    id: 'gold21'
+                },
+                {
+                    title: 'طلای ۱۸ عیار',
+                    buyPrice: data.purchase18GoldPrice,
+                    sellPrice: data.sell18GoldPrice,
+                    icon: 'Au18',
+                    id: 'gold18'
+                },
+                {
+                    title: 'نقره',
+                    buyPrice: data.purchaseSilverPrice,
+                    sellPrice: data.sellSilverPrice,
+                    icon: 'Ag',
+                    id: 'silver'
+                },
+                {
+                    title: 'پلاتینیوم',
+                    buyPrice: data.purchasePlatinumPrice,
+                    sellPrice: data.sellPlatinumPrice,
+                    icon: 'Pt',
+                    id: 'platinum'
+                }
+            ];
+
+            container.innerHTML = priceCards.map(card => `
+                <div class="price-card" id="card-${card.id}">
+                    <div class="card-header">
+                        <div class="card-icon">${card.icon}</div>
+                        <div class="card-title">${card.title}</div>
+                    </div>
+                    <div class="price-row">
+                        <span>قیمت خرید</span>
+                        <div>
+                            <span class="price-value buy-price" data-base="${card.buyPrice}">${card.buyPrice.toFixed(3)}</span>
+                            <span class="currency">دینار کویت</span>
+                        </div>
+                    </div>
+                    <div class="price-row">
+                        <span>قیمت فروش</span>
+                        <div>
+                            <span class="price-value sell-price" data-base="${card.sellPrice}">${card.sellPrice.toFixed(3)}</span>
+                            <span class="currency">دینار کویت</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            container.style.display = 'grid';
+            
+            // قیمت‌ها رو برای مقدار پیش‌فرض (1 گرم) به‌روزرسانی کن
+            updatePricesInCards();
+        };
+
+        // به‌روزرسانی قیمت‌ها در کارت‌ها بر اساس گرم وارد شده
+        const updatePricesInCards = () => {
+            const gramInput = document.getElementById('gram');
+            const grams = parseFloat(gramInput.value) || 1; // اگر مقدار وارد نشده باشه، 1 در نظر بگیر
+            
+            if (!priceData) return;
+            
+            // تمام قیمت‌های خرید و فروش رو پیدا کن
+            const buyPriceElements = document.querySelectorAll('.buy-price');
+            const sellPriceElements = document.querySelectorAll('.sell-price');
+            
+            // قیمت‌های خرید رو به‌روزرسانی کن
+            buyPriceElements.forEach(element => {
+                const basePrice = parseFloat(element.getAttribute('data-base'));
+                const calculatedPrice = (basePrice * grams).toFixed(3);
+                element.textContent = calculatedPrice;
+            });
+            
+            // قیمت‌های فروش رو به‌روزرسانی کن
+            sellPriceElements.forEach(element => {
+                const basePrice = parseFloat(element.getAttribute('data-base'));
+                const calculatedPrice = (basePrice * grams).toFixed(3);
+                element.textContent = calculatedPrice;
+            });
+        };
+
+        // به‌روزرسانی زمان
+        const updateTime = () => {
+            const now = new Date();
+            const timeString = now.toLocaleString('fa-IR', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+            document.getElementById('updateTime').textContent = timeString;
+        };
+
+        // نمایش اطلاعات به‌روزرسانی
+        const showUpdateInfo = () => {
+            document.getElementById('updateInfo').style.display = 'block';
+        };
+
+        // مخفی کردن لودینگ
+        const hideLoading = () => {
+            document.getElementById('loading').style.display = 'none';
+        };
+
+        // نمایش خطا
+        const showError = () => {
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
+        };
+
+        // اجرای فانکشن به‌روزرسانی هر 15 ثانیه
+        const startAutoUpdate = () => {
+            setInterval(() => {
+                fetchPrices();
+            }, 15000); // هر 15 ثانیه
+        };
+
+        // شروع برنامه
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchPrices();
+            startAutoUpdate();
+        });
+    </script>
 </body>
 
 </html>
