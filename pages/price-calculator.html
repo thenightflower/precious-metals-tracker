@@ -112,13 +112,13 @@
                 <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
                     <a href="" title="">بلاگ</a>
                 </li>
-                <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
+                <li class="text-gold dark:text-yriel-yellow transition-colors">
                     <a href="" title="">ماشین حساب قیمت</a>
                 </li>
                 <li class="font-IBMPlexSans hover:text-light-yellow dark:text-philippine-silver transition-colors">
                     <a href="" title="">faq</a>
                 </li>
-                <li class="text-gold dark:text-yriel-yellow transition-colors">
+                <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
                     <a href="" title="">درباره ما</a>
                 </li>
                 <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
@@ -129,24 +129,25 @@
     </header>
     <main class="mb-15 max-ml:pt-46.5 ml:pt-35">
         <span class="block mt-4.5 text-gold text-lg text-center">قیمت طلا برای مشتریان دارالسبایک</span>
-        <div class="mx-auto w-[37%]">
+        <div class="mx-auto max-md:px-4 max-sm:w-full sm:max-lg:w-3/5 lg:w-[37%]">
             <label for="gram" class="block my-4 font-normal text-[15px]">مقدار را بر حسب گرم وارد
                 کنید</label>
             <div
-                class="flex rtl:flex-row-reverse mx-auto border border-dim-gray rounded-[10px] rounded-tl-[10px] rounded-bl-[10px]">
+                class="flex rtl:flex-row-reverse dark:bg-arsenic mx-auto border border-dim-gray rounded-[10px] rounded-tl-[10px] rounded-bl-[10px]">
                 <span class="px-3 py-1.75 border-e-dim-gray border-r">گرم</span>
                 <input type="number" name="gram" id="gram" dir="ltr" oninput="updatePricesInCards()" value="1"
                     class="px-4 py-1.75 rounded-tr-[10px] rounded-br-[10px] text-left grow" placeholder="1" />
             </div>
         </div>
-        <div class="max-ml:mx-4 ml:mx-12.5 mt-6.5 border-gray border-t">
-            <span id="updateInfo" class="flex justify-center items-center mt-5 mb-10 text-sm"  style="display: none;">
-                <div class="bg-white px-1.25 py-2 rounded-md">
+        <div class="max-xl:mx-4 xl:mx-12.5 mt-6.5 border-gray border-t">
+            <span id="updateInfo" class="flex justify-center items-center mt-5 mb-10 text-sm" style="display: none;">
+                <div class="bg-white dark:bg-transparent px-1.25 py-2 rounded-md">
                     قیمت‌ها ظرف
                     <span class="text-gold" id="updateInterval"></span>
                     ثانیه
                     با توجه به قیمت جهانی به‌روزرسانی می‌شوند.
-                    <span id="updateTime" class="bg-[#efefef] px-1.5 py-0.75 rounded-md text-gold"></span>
+                    <span id="updateTime"
+                        class="inline-block bg-[#efefef] dark:bg-[#2b2924] px-1.5 py-0.75 rounded-md text-gold"></span>
                 </div>
             </span>
 
@@ -158,7 +159,8 @@
                 خطا در دریافت قیمت‌ها. لطفاً دوباره تلاش کنید.
             </div>
 
-            <div class="flex flex-wrap gap-8" id="pricesContainer" style="display: none;">
+            <div class="flex max-md:flex-col flex-wrap max-md:items-center gap-8" id="pricesContainer"
+                style="display: none;">
             </div>
         </div>
     </main>
@@ -537,7 +539,7 @@
             ];
 
             container.innerHTML = priceCards.map(card => `
-                <div class="flex flex-col bg-white p-4 rounded-[10px] w-[calc(100%/3-64px/3)] text-base">
+                <div class="flex flex-col bg-white dark:bg-karaka p-4 rounded-[10px] max-sm:w-full sm:max-md:w-[65%] md:max-xl:w-[calc(50%-16px)] xl:w-[calc(100%/3-64px/3)] text-base">
                     <span class="flex items-center mb-2.5 ps-2 font-semibold">    
                         ${card.icon}                  
                         <span class="px-5">
