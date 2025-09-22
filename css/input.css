@@ -78,14 +78,13 @@
     --color-gold: #9b8600;
     --color-background: #f0f0f0;
     --color-forground: #151514;
-    --color-maire:#151514;
+    --color-maire: #151514;
 
     /* p & footer */
     --color-dark-gray: #838383;
     /* table border */
     --color-dim-gray: #707070;
 
-    --color-karaka: #262623;
     /* hover */
     --color-light-yellow: #faeaa4;
     --color-yellow: #ffc700;
@@ -105,11 +104,13 @@
     --tw-ease: ease;
     --tw-duration: .2s;
     /* dark */
-    --color-gray:#808080;
+    --color-gray: #808080;
+    --color-karaka: #262623;
     --color-yriel-yellow: #f8d25c;
     --color-dark-olive-gray: #31312f;
     --color-philippine-silver: #b3b3b3;
     --color-dark-olive-brown: #413718;
+    --color-coffee-bean: #2b2924;
 
 }
 
@@ -220,13 +221,13 @@ h3 {
 
 
 /* faq */
-summary {
+.faq summary {
     display: flex;
     position: relative;
     padding-inline-start: 55px;
 }
 
-summary::before {
+.faq summary::before {
     width: 20px;
     height: 20px;
     display: inline-block;
@@ -238,11 +239,11 @@ summary::before {
     transform: translateY(-50%);
 }
 
-details[open]>summary::before {
+.faq details[open]>summary::before {
     content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22.045' height='22.045' viewBox='0 0 22.045 22.045'><g id='close'><g id='minus-square'><g id='Rectangle_11597' transform='translate(4.045 5)' fill='%23f8d25c' stroke='%23707070' stroke-width='1'><rect width='13' height='13' stroke='none'/><rect x='0.5' y='0.5' width='12' height='12' fill='none'/></g><path id='Vector' d='M15.648,0H6.407C2.393,0,0,2.392,0,6.4V15.63c0,4.023,2.393,6.415,6.407,6.415h9.23c4.014,0,6.407-2.392,6.407-6.4V6.4C22.055,2.392,19.662,0,15.648,0Zm-.21,11.849H6.617a.827.827,0,1,1,0-1.653h8.822a.827.827,0,1,1,0,1.653Z' transform='translate(0.001)' fill='%23413718'/><path id='Vector-2' d='M0,0H22.045V22.035H0Z' transform='translate(22.045 22.035) rotate(180)' fill='none' opacity='0'/></g></g></svg>");
 }
 
-details>div>div {
+.faq details>div>div {
     overflow: hidden;
     padding-inline-start: 7%;
     height: 0;
@@ -250,13 +251,13 @@ details>div>div {
     border-radius: 10px
 }
 
-details.open>div>div {
+.faq details.open>div>div {
     @apply py-4 border-foggy-gray border-t h-auto;
 }
 
 
 
-
+/* contact form */
 
 input.error,
 textarea.error {
