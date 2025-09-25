@@ -7,12 +7,16 @@
     <title>خانه</title>
     <link href="./css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/slick.css">
-    
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
 <body>
-    <div class="" id="loading"  style="display: none;"></div>
+    <div class="" id="loading" style="display: none;"></div>
     <div class="" id="error" style="display: none;">ارور</div>
     <header class="top-0 z-10 fixed inset-x-0 bg-background">
         <div class="flex justify-between items-center ml:my-2 max-ml:py-4.5 container">
@@ -145,7 +149,7 @@
                                 d="M47.658,4.429A5.66,5.66,0,0,0,49.294,0a7.392,7.392,0,0,0-4.629,2.1A5.421,5.421,0,0,0,43,6.4,6.163,6.163,0,0,0,47.658,4.429Zm3.365,11.225a6.53,6.53,0,0,1,3.014-5.479,6.454,6.454,0,0,0-5.107-2.851c-2.176-.228-4.243,1.318-5.348,1.318s-2.8-1.288-4.607-1.253A6.807,6.807,0,0,0,33.2,11c-2.465,4.4-.632,10.93,1.77,14.5,1.174,1.749,2.572,3.711,4.408,3.64,1.772-.071,2.44-1.179,4.578-1.179s2.738,1.179,4.609,1.143c1.9-.035,3.109-1.783,4.273-3.538a16.085,16.085,0,0,0,1.934-4.092A6.34,6.34,0,0,1,51.023,15.655Z"
                                 transform="translate(-32.029)" fill="#ccd0d2" />
                         </g>
-                        <g id="Group_1803" data-name="Group 1803" transform="translate(31.429)">
+                        <g transform="translate(31.429)">
                             <text id="Download_App" transform="translate(0 13)" fill="#fff" font-size="10"
                                 font-weight="600">
                                 <tspan x="0" y="0">Download App</tspan>
@@ -158,10 +162,10 @@
                 </svg>
                 <svg class="w-22.5" id="engooglestore" xmlns="http://www.w3.org/2000/svg" width="160" height="42"
                     viewBox="0 0 160 42">
-                    <rect id="Rectangle_11615" width="160" height="42" rx="6" />
-                    <g id="Group_17929" transform="translate(16 2.048)">
-                        <g id="playstore" transform="translate(0 6.333)">
-                            <g id="Group_1802" data-name="Group 1802" transform="translate(0 0.001)">
+                    <rect width="160" height="42" rx="6" />
+                    <g transform="translate(16 2.048)">
+                        <g transform="translate(0 6.333)">
+                            <g transform="translate(0 0.001)">
                                 <path id="Path_4384"
                                     d="M64.792,8.85C61.8,7.176,56.994,4.487,49.542.315a1.8,1.8,0,0,0-1.58-.206L60.748,12.894Z"
                                     transform="translate(-46.733 -0.012)" fill="#32bbff" />
@@ -213,94 +217,24 @@
     </section>
     <section class="flex gap-14 container">
         <div class="flex flex-col w-[24%]" id="currencyـfluctuations">
-            <!-- <span class="mt-1.5 mb-5 font-semibold text-gold text-sm">قیمت طلا</span>
-            <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
-                <span>عیار ۲۴ (گرم)</span>
-                <span class="flex items-center gap-1.75 font-semibold">
-                    <span class="text-base">36.990</span>
-                    <span class="text-xs">د.ک</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.388" height="7.538" viewBox="0 0 12.388 7.538">
-                        <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z"
-                            transform="translate(-1.306 -0.462)" fill="#3bc389" />
-                    </svg>
-                </span>
-            </span>
-            <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
-                <span>عیار ۲۲ (گرم)</span>
-                <span class="flex items-center gap-1.75 font-semibold">
-                    <span class="text-base">36.990</span>
-                    <span class="text-xs">د.ک</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8">
-                        <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z"
-                            transform="translate(15 8) rotate(180)" fill="#f54845" />
-                    </svg>
-                </span>
-            </span>
-            <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
-                <span>عیار ۲۱ (گرم)</span>
-                <span class="flex items-center gap-1.75 font-semibold">
-                    <span class="text-base">36.990</span>
-                    <span class="text-xs">د.ک</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8">
-                        <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z"
-                            transform="translate(15 8) rotate(180)" fill="#f54845" />
-                    </svg>
-                </span>
-            </span>
-            <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
-                <span>عیار ۱۸ (گرم)</span>
-                <span class="flex items-center gap-1.75 font-semibold">
-                    <span class="text-base">36.990</span>
-                    <span class="text-xs">د.ک</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8">
-                        <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z"
-                            transform="translate(15 8) rotate(180)" fill="#f54845" />
-                    </svg>
-                </span>
-            </span>
-
-
-            <span class="mt-0.75 mb-4 font-semibold text-gold text-sm">قیمت نقره</span>
-            <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
-                <span>نقره (کیلوگرم)</span>
-                <span class="flex items-center gap-1.75 font-semibold">
-                    <span class="text-base">474.990</span>
-                    <span class="text-xs">د.ک</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.388" height="7.538" viewBox="0 0 12.388 7.538">
-                        <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z"
-                            transform="translate(-1.306 -0.462)" fill="#3bc389" />
-                    </svg>
-                </span>
-            </span>
-
-
-            <span class="mt-0.75 mb-4 font-semibold text-gold text-sm">قیمت پلاتینیوم</span>
-            <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
-                <span>پلاتینیوم (گرم)</span>
-                <span class="flex items-center gap-1.75 font-semibold">
-                    <span class="text-base">474.990</span>
-                    <span class="text-xs">د.ک</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.388" height="7.538" viewBox="0 0 12.388 7.538">
-                        <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z"
-                            transform="translate(-1.306 -0.462)" fill="#3bc389" />
-                    </svg>
-                </span>
-            </span> -->
         </div>
         <div class="grow">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-3 font-semibold text-sm">
-                    <span class="bg-gold px-5 py-1.25 rounded-md text-mercury">طلا</span>
-                    <span class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray">نقره</span>
-                    <span class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray">پلاتینیوم</span>
+                    <button id="btn-gold"
+                        class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray activeMetal metalBtn">طلا</button>
+                    <button id="btn-silver"
+                        class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray metalBtn">نقره</button>
+                    <button id="btn-platinum"
+                        class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray metalBtn">پلاتینیوم</button>
                 </div>
                 <div class="flex items-center gap-3 font-normal text-dark-gray">
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">10m</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">1h</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">6h</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">1d</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">3d</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">7d</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md activePeriod periodBtn">10m</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">1h</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">6h</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">1d</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">3d</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">7d</span>
                     <span
                         class="flex items-center gap-2.75 bg-mercury px-1.5 py-0.75 border border-[#626262] rounded-md">more
                         <svg id="maxemize" xmlns="http://www.w3.org/2000/svg" width="14.483" height="14.483"
@@ -324,9 +258,7 @@
                     </span>
                 </div>
             </div>
-            <div>
-
-            </div>
+            <div id="container" class="mt-2"></div>
         </div>
     </section>
     <section class="mt-8 mb-14.5">
@@ -731,10 +663,9 @@
         });
     </script>
 
-    <script src="js/main.js">
-      
+    <script src="js/main.js"></script>
 
-    </script>
+
 </body>
 
 </html>

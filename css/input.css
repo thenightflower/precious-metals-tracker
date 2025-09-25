@@ -330,3 +330,53 @@ textarea.error {
 .slick-prev:hover {
     opacity: 0.9;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* highchart */
+.highcharts-legend,
+.highcharts-contextbutton,
+.highcharts-contextbutton:hover {
+    display: none;
+}
+
+.highcharts-title,
+.highcharts-axis {
+    font-family: 'yekanbakh';
+}
+
+.highcharts-title {
+    fill: var(--color-forground) !important;
+    font-size: 16px !important;
+}
+
+.highcharts-axis text {
+    fill: var(--color-forground) !important;
+    font-size: 14px !important;
+}
+
+.highcharts-credits {
+    display: none;
+}
+
+
+/*  */
+.activeMetal {
+    background-color: var(--color-gold);
+    color: var(--color-mercury)
+}
+
+.activePeriod{
+    color: var(--color-yriel-yellow);
+    border-color: var(--color-yriel-yellow);
+    background-color: var(--color-dark-olive-brown);
+}
