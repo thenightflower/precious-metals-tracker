@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خانه</title>
-    <link href="./css/swiper.css" rel="stylesheet">
-
     <link href="./css/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/slick.css">
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 
 <body>
+    <div class="" id="loading"  style="display: none;"></div>
+    <div class="" id="error" style="display: none;">ارور</div>
     <header class="top-0 z-10 fixed inset-x-0 bg-background">
         <div class="flex justify-between items-center ml:my-2 max-ml:py-4.5 container">
             <iframe class="max-ml:hidden bg-white dark:bg-karaka rounded-md w-50 h-15" scrolling="no"
@@ -201,7 +200,7 @@
                 </svg>
             </div>
         </div>
-        <span id="homeUpdateInfo" class="flex justify-center items-center bg-white mb-10 rounded text-sm">
+        <span id="homeUpdateInfo" class="flex justify-center items-center bg-white mb-8 rounded text-sm">
             <div class="dark:bg-transparent px-1.25 py-2">
                 قیمت‌ها ظرف
                 <span class="text-gold" id="homeUpdateInterval"></span>
@@ -213,8 +212,8 @@
         </span>
     </section>
     <section class="flex gap-14 container">
-        <div class="flex flex-col w-[24%]">
-            <span class="mt-1.5 mb-5 font-semibold text-gold text-sm">قیمت طلا</span>
+        <div class="flex flex-col w-[24%]" id="currencyـfluctuations">
+            <!-- <span class="mt-1.5 mb-5 font-semibold text-gold text-sm">قیمت طلا</span>
             <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
                 <span>عیار ۲۴ (گرم)</span>
                 <span class="flex items-center gap-1.75 font-semibold">
@@ -259,7 +258,8 @@
                     </svg>
                 </span>
             </span>
-            <!--  -->
+
+
             <span class="mt-0.75 mb-4 font-semibold text-gold text-sm">قیمت نقره</span>
             <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
                 <span>نقره (کیلوگرم)</span>
@@ -272,7 +272,8 @@
                     </svg>
                 </span>
             </span>
-            <!--  -->
+
+
             <span class="mt-0.75 mb-4 font-semibold text-gold text-sm">قیمت پلاتینیوم</span>
             <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
                 <span>پلاتینیوم (گرم)</span>
@@ -284,9 +285,49 @@
                             transform="translate(-1.306 -0.462)" fill="#3bc389" />
                     </svg>
                 </span>
-            </span>
+            </span> -->
         </div>
-        <div class="grow"></div>
+        <div class="grow">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3 font-semibold text-sm">
+                    <span class="bg-gold px-5 py-1.25 rounded-md text-mercury">طلا</span>
+                    <span class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray">نقره</span>
+                    <span class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray">پلاتینیوم</span>
+                </div>
+                <div class="flex items-center gap-3 font-normal text-dark-gray">
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">10m</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">1h</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">6h</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">1d</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">3d</span>
+                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md">7d</span>
+                    <span
+                        class="flex items-center gap-2.75 bg-mercury px-1.5 py-0.75 border border-[#626262] rounded-md">more
+                        <svg id="maxemize" xmlns="http://www.w3.org/2000/svg" width="14.483" height="14.483"
+                            viewBox="0 0 14.483 14.483">
+                            <g id="maximize-4">
+                                <path d="M3.621,3.621V0H0" transform="translate(9.052 1.81)" fill="none"
+                                    stroke="#151514" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" />
+                                <path d="M0,0V3.621H3.621" transform="translate(1.81 9.052)" fill="none"
+                                    stroke="#151514" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" />
+                                <path d="M4.526,0,0,4.526" transform="translate(8.147 1.81)" fill="none"
+                                    stroke="#151514" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" />
+                                <path d="M4.526,0,0,4.526" transform="translate(1.81 8.147)" fill="none"
+                                    stroke="#151514" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" />
+                                <path d="M0,0H14.483V14.483H0Z" fill="none" opacity="0" />
+                            </g>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
     </section>
     <section class="mt-8 mb-14.5">
         <div class="flex justify-center items-center gap-5 mb-8">
@@ -295,97 +336,52 @@
             <span class="bg-gold w-7.5 h-[3px]"></span>
         </div>
         <div class="container">
-            <div class="swiper specialBlogSlider">
-                <div class="swiper-wrapper">
-                    <div
-                        class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)] swiper-slide">
-                        <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
-                        <div
-                            class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
-                            <span class="text-sm">
-                                20/09/2025 12:22 م
-                            </span>
-                            <span>11111</span>
-                            <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
-                                دلار باقی ماند</p>
-                        </div>
-                    </div>
-                    <div
-                        class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)] swiper-slide">
-                        <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
-                        <div
-                            class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
-                            <span class="text-sm">
-                                20/09/2025 12:22 م
-                            </span>
-                            <span>22222</span>
-                            <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
-                                دلار باقی ماند</p>
-                        </div>
-                    </div>
-                    <div
-                        class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)] swiper-slide">
-                        <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
-                        <div
-                            class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
-                            <span class="text-sm">
-                                20/09/2025 12:22 م
-                            </span>
-                            <span>333333</span>
-                            <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
-                                دلار باقی ماند</p>
-                        </div>
-                    </div>
-                    <div
-                        class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)] swiper-slide">
-                        <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
-                        <div
-                            class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
-                            <span class="text-sm">
-                                20/09/2025 12:22 م
-                            </span>
-                            <span>11111</span>
-                            <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
-                                دلار باقی ماند</p>
-                        </div>
-                    </div>
-                    <div
-                        class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)] swiper-slide">
-                        <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
-                        <div
-                            class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
-                            <span class="text-sm">
-                                20/09/2025 12:22 م
-                            </span>
-                            <span>22222</span>
-                            <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
-                                دلار باقی ماند</p>
-                        </div>
-                    </div>
-                    <div
-                        class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)] swiper-slide">
-                        <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
-                        <div
-                            class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
-                            <span class="text-sm">
-                                20/09/2025 12:22 م
-                            </span>
-                            <span>333333</span>
-                            <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
-                                دلار باقی ماند</p>
-                        </div>
+            <div class="flex justify-center specialBlogSlider">
+                <div class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)]">
+                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                    <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
+                        <span class="text-sm">
+                            20/09/2025 12:22 م
+                        </span>
+                        <span>11111</span>
+                        <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
+                            دلار باقی ماند</p>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-
-                <div class="swiper-pagination"></div>
+                <div class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)]">
+                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                    <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
+                        <span class="text-sm">
+                            20/09/2025 12:22 م
+                        </span>
+                        <span>22222</span>
+                        <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
+                            دلار باقی ماند</p>
+                    </div>
+                </div>
+                <div class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)]">
+                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                    <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
+                        <span class="text-sm">
+                            20/09/2025 12:22 م
+                        </span>
+                        <span>333333</span>
+                        <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
+                            دلار باقی ماند</p>
+                    </div>
+                </div>
+                <div class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)]">
+                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                    <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
+                        <span class="text-sm">
+                            20/09/2025 12:22 م
+                        </span>
+                        <span>44444</span>
+                        <p class="text-justify">به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰
+                            دلار باقی ماند</p>
+                    </div>
+                </div>
             </div>
-
-
-
-
-
         </div>
     </section>
     <section class="mb-32 container">
@@ -569,7 +565,7 @@
         <div
             class="flex max-ml:flex-wrap items-center bg-white dark:bg-karaka max-ml:px-6 ml:max-lg:px-22 ml:px-38.5 py-5 text-[15px] text-dark-gray dark:text-philippine-silver">
             <a href="" title="" class="max-ml:w-full ml:w-1/4">
-                <img class="w-[150px]" src="../assets/images/footerLogo.png" />
+                <img class="w-[150px]" src="assets/images/footerLogo.png" />
             </a>
             <div class="flex items-center max-ml:mt-6.5 max-ml:w-full ml:w-3/4">
                 <div class="flex max-ml:flex-col max-ml:justify-around gap-5 max-ml:w-[54.5%] ml:w-2/3">
@@ -702,153 +698,43 @@
                 fill="#f8d25c" />
         </svg>
     </button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        const swiper = new Swiper(".specialBlogSlider", {
-            grabCursor: true,
-            loop: true,
-            slidesPerView: 3,
-            centeredSlides: true,
-            centeredSlidesBounds: true,
-            spaceBetween: 26,
-            initialSlide: 1, // شروع از اسلاید دوم (وسطی)
-            loopAdditionalSlides: 0,
-
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-                disabledClass: 'swiper-button-disabled',
-            },
-
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true, // امکان کلیک روی دایره‌ها
-            },
-
-            // تنظیمات اضافی برای اطمینان از کارکرد درست
-            allowTouchMove: true,
-            simulateTouch: true,
-            touchRatio: 1,
-            touchAngle: 45,
-
-            // رویدادها برای دیباگ
-            on: {
-                init: function () {
-                    console.log('Swiper initialized');
-                    // فعال کردن دکمه‌ها
-                    document.querySelector('.swiper-button-next').style.pointerEvents = 'auto';
-                    document.querySelector('.swiper-button-prev').style.pointerEvents = 'auto';
-                },
-                slideChange: function () {
-                    console.log('Slide changed to:', this.activeIndex);
-                }
-            }
+        $('.specialBlogSlider').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 3,
+            rtl: true,
+            arrows: true,
+            dots: true, // دایره‌های pagination
+            // responsive: [
+            //     {
+            //         breakpoint: 768,
+            //         settings: {
+            //             arrows: false,
+            //             centerMode: true,
+            //             centerPadding: '40px',
+            //             slidesToShow: 3
+            //         }
+            //     },
+            //     {
+            //         breakpoint: 480,
+            //         settings: {
+            //             arrows: false,
+            //             centerMode: true,
+            //             centerPadding: '40px',
+            //             slidesToShow: 1
+            //         }
+            //     }
+            // ]
         });
-
-        // اجباری کردن کلیک دکمه‌ها
-        setTimeout(() => {
-            const nextBtn = document.querySelector('.swiper-button-next');
-            const prevBtn = document.querySelector('.swiper-button-prev');
-
-            // حذف event listener های قدیمی و اضافه کردن جدید
-            nextBtn.onclick = function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Next clicked manually');
-                swiper.slideNext();
-                return false;
-            };
-
-            prevBtn.onclick = function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Prev clicked manually');
-                swiper.slidePrev();
-                return false;
-            };
-        }, 100);
     </script>
 
-    <!-- <script>
-        // const swiper = new Swiper(".specialBlogSlider", {
-        //     grabCursor: true,
-        //     // centeredSlides: true,
-        //     // loop: true,
-        //     loopedSlides: 3,
-        //     // slidesPerView: "auto",
-        //     slidesPerView: 3,
-        //     initialSlide: 1,
-        //     spaceBetween: 26,
-        //     navigation: {
-        //         nextEl: ".swiper-button-next",
-        //         prevEl: ".swiper-button-prev",
-        //     },
-        // });
-        // // swiper.slideToLoop(1, 0);
+    <script src="js/main.js">
+      
 
-
-        // const swiper = new Swiper(".specialBlogSlider", {
-        //     init: false,                 // <--- مهم: خودکار initialize نشه
-        //     grabCursor: true,
-        //     loop: true,                  // می‌خوای loop باشه
-        //     // centeredSlides: true,
-        //     slidesPerView: 3,
-        //     // slidesPerView: "auto",
-        //     spaceBetween: 26,
-        //     navigation: {
-        //         nextEl: ".swiper-button-next",
-        //         prevEl: ".swiper-button-prev",
-        //     },
-        //     on: {
-        //         init() {
-        //             // برو به اسلاید منطقی شماره 1 (یعنی دومین اسلاید) بعد از init و clone شدن
-        //             this.slideToLoop(1, 0);
-        //         }
-        //     }
-        // });
-
-        // // حالا صریحاً init کن تا handler بالا اجرا بشه
-        // swiper.init();
-
-        // const swiper = new Swiper(".specialBlogSlider", {
-        //     grabCursor: true,
-        //     loop: true,
-        //     slidesPerView: 3,
-        //     centeredSlides: true,
-        //     spaceBetween: 26,
-        //     initialSlide: 1,  // شروع از دومین اسلاید
-        //     navigation: {
-        //         nextEl: ".swiper-button-next",
-        //         prevEl: ".swiper-button-prev",
-        //     },
-        //     on: {
-        //         init() {
-        //             // مطمئن بشیم دومین اسلاید دقیقا اکتیو و وسطه
-        //             this.slideToLoop(1, 0, false);
-        //         }
-        //     }
-        // });
-
-
-        const swiper = new Swiper(".specialBlogSlider", {
-            grabCursor: true,
-            loop: true,
-            slidesPerView: 3,
-            centeredSlides: true,
-            centeredSlidesBounds: true,
-            spaceBetween: 26,
-            // initialSlide: 0,
-            loopAdditionalSlides: 30,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },         
-
-        });
-
-    
-
-    </script> -->
-
+    </script>
 </body>
 
 </html>
