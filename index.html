@@ -54,8 +54,8 @@
                     </g>
                 </svg>
                 <span class="bg-[#81818143] w-px"></span>
-                <span class="ltr:hidden rtl:block font-IBMPlexSans">English</span>
-                <span class="rtl:hidden ltr:block">فارسی</span>
+                <span class="ltr:hidden rtl:block font-IBMPlexSans" id="english">English</span>
+                <span class="rtl:hidden ltr:block" id="persian">فارسی</span>
             </div>
             <div class="ml:hidden">
                 <svg class="text-[#d6ba32]" id="menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -204,7 +204,7 @@
                 </svg>
             </div>
         </div>
-        <span id="homeUpdateInfo" class="flex justify-center items-center bg-white mb-8 rounded text-sm">
+        <span id="homeUpdateInfo" class="inline-flex justify-center items-center bg-white mb-8 rounded w-full text-sm">
             <div class="dark:bg-transparent px-1.25 py-2">
                 قیمت‌ها ظرف
                 <span class="text-gold" id="homeUpdateInterval"></span>
@@ -229,13 +229,14 @@
                         class="bg-mercury px-5 py-1.25 rounded-md text-dark-gray metalBtn">پلاتینیوم</button>
                 </div>
                 <div class="flex items-center gap-3 font-normal text-dark-gray">
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md activePeriod periodBtn">10m</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">1h</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">6h</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">1d</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">3d</span>
-                    <span class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">7d</span>
-                    <span
+                    <button
+                        class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md activePeriod periodBtn">10m</button>
+                    <button class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">1h</button>
+                    <button class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">6h</button>
+                    <button class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">1d</button>
+                    <button class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">3d</button>
+                    <button class="bg-mercury px-4.5 py-0.75 border border-[#626262] rounded-md periodBtn">7d</button>
+                    <a href="./pages/chart.html"
                         class="flex items-center gap-2.75 bg-mercury px-1.5 py-0.75 border border-[#626262] rounded-md">more
                         <svg id="maxemize" xmlns="http://www.w3.org/2000/svg" width="14.483" height="14.483"
                             viewBox="0 0 14.483 14.483">
@@ -255,7 +256,7 @@
                                 <path d="M0,0H14.483V14.483H0Z" fill="none" opacity="0" />
                             </g>
                         </svg>
-                    </span>
+                    </a>
                 </div>
             </div>
             <div id="container" class="mt-2"></div>

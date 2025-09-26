@@ -375,7 +375,7 @@ textarea.error {
     color: var(--color-mercury)
 }
 
-.activePeriod{
+.activePeriod,.moreActivePeriod{
     color: var(--color-yriel-yellow);
     border-color: var(--color-yriel-yellow);
     background-color: var(--color-dark-olive-brown);
