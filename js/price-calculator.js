@@ -144,7 +144,7 @@ const startCountdownFromBase = () => {
 const fetchPrices = async () => {
     const now = new Date();
     try {
-        const res = await fetch("https://api.daralsabaek .com/api/goldAndFundBalance/getMetalSellAndBuyPrices");
+        const res = await fetch("https://api.daralsabaek.com/api/goldAndFundBalance/getMetalSellAndBuyPrices");
         const data = await res.json();
 
         if (data.succeeded) {
