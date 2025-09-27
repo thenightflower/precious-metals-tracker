@@ -95,7 +95,7 @@ const displayPrices = (data) => {
     ${group.items.map(item => {
             const prefix = group.group === "قیمت طلا" ? "طلا " : "";
             return `
-      <span class="flex items-start p-2.25 w-full flex-col bg-white mb-2.5  border-[#81818143] rounded-md border-e">
+      <span class="flex items-start p-2.25 w-full flex-col bg-white dark:bg-karaka mb-2.5  border-[#81818143] rounded-md border-e">
         ${prefix ? `<span class="text-xs flex items-center justify-start gap-1"><span class="text-gold">${prefix}</span>${item.title}</span>`
                     : `<span class="text-xs">${item.title}</span>`}
         <span class="flex items-center gap-1.75 font-semibold">
@@ -195,13 +195,14 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
         Highcharts.chart('container', {
             chart: {
                 type: 'area',
-                backgroundColor: '#f0f0f0',
+                backgroundColor: 'var(--color-background)',
             },
             title: {
                 text: 'نمودار قیمت فلزات',
                 align: 'center'
             },
             xAxis: {
+                title: { text: 'بازه زمانی' },
                 type: 'datetime',
                 tickLength: 0,
                 labels: {
@@ -355,29 +356,3 @@ morePeriodButtons.forEach((btn, index) => {
 
 
 
-
-
-// dark & light
-const darkModeBtn = document.getElementById('dark_mode');
-const lightBtn = document.getElementById('light_mode');
-
-darkModeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-});
-
-lightBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-});
-
-// ltr & rtl
-const ltr = document.getElementById('english');
-const rtl = document.getElementById('persian');
-const htmlTag = document.documentElement;
-
-ltr.addEventListener('click', () => {
-    htmlTag.setAttribute('dir', 'ltr');
-});
-
-rtl.addEventListener('click', () => {
-    htmlTag.setAttribute('dir', 'rtl');
-});

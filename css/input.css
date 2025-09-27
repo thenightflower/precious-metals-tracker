@@ -2,7 +2,7 @@
 /* yekanbakh 500 mikhim bra hrja font-medium hst */
 @custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
+/* @font-face {
     font-family: yekanbakh;
     font-style: normal;
     font-weight: 100;
@@ -16,7 +16,7 @@
     font-weight: 300;
     font-display: swap;
     src: url('../assets/fonts/YekanBakh/YekanBakh-Light.ttf') format('truetype');
-}
+} */
 
 @font-face {
     font-family: yekanbakh;
@@ -78,31 +78,24 @@
     --color-gold: #9b8600;
     --color-background: #f0f0f0;
     --color-forground: #151514;
+
     --color-maire: #151514;
-
-    /* p & footer */
     --color-dark-gray: #838383;
-    /* table border */
     --color-dim-gray: #707070;
-
-    /* hover */
     --color-light-yellow: #faeaa4;
     --color-yellow: #ffc700;
-
     --color-error: #f1416c;
     --color-mercury: #e5e5e5;
-
-
     --color-foggy-gray: #97959543;
     --color-arsenic: #434343;
-
-
+    --color-soft-gray: #a3a3a3;
+    --color-deep-black: #1a1a1a;
     /* --text-2.5xl: 1.75rem; */
     /* --text-1.5xl: 1.35rem; */
+
     /* 992px */
     --breakpoint-ml: 62rem;
-    --tw-ease: ease;
-    --tw-duration: .2s;
+
     /* dark */
     --color-gray: #808080;
     --color-karaka: #262623;
@@ -112,6 +105,8 @@
     --color-dark-olive-brown: #413718;
     --color-coffee-bean: #2b2924;
 
+    --tw-ease: ease;
+    --tw-duration: .2s;
 }
 
 @layer theme {
@@ -129,6 +124,21 @@
     --foreground: #ededed;
   }
 } */
+
+@utility container {
+    margin: auto;
+    max-width: unset;
+
+    @media (max-width: 992px) {
+        padding-inline: 24px;
+    }
+
+    @media (min-width: 992px) {
+        padding-inline: 50px;
+    }
+
+}
+
 @utility font-yekanbakh {
     font-family: 'yekanbakh';
 }
@@ -155,21 +165,6 @@ main {
     min-height: 100dvh;
 }
 
-@utility container {
-    margin: auto;
-    max-width: unset;
-
-    @media (max-width: 992px) {
-        padding-inline: 24px;
-    }
-
-    @media (min-width: 992px) {
-        padding-inline: 50px;
-    }
-
-}
-
-/* public */
 input,
 button,
 summary,
@@ -177,10 +172,7 @@ textarea {
     outline: unset;
 }
 
-summary {
-    cursor: pointer
-}
-
+summary,
 button {
     cursor: pointer;
 }
@@ -189,12 +181,6 @@ input::placeholder {
     color: var(--color-philippine-silver);
 }
 
-h2,
-h4,
-h5,
-h6 {
-    @apply font-semibold;
-}
 
 h1 {
     @apply text-2xl;
@@ -208,21 +194,50 @@ h3 {
     @apply max-ml:text-sm ml:text-lg;
 }
 
-
-@keyframes fade-move-up {
-    0% {
-        margin-top: .75rem;
-        opacity: 0
-    }
-
-    100% {
-        margin-top: 0;
-        opacity: 1;
-    }
+h2,
+h4,
+h5,
+h6 {
+    @apply font-semibold;
 }
 
 
 
+/* menu dropdown */
+@utility dropdown-animation {
+    animation: dropdown-animation .5s ease 1;
+}
+
+@keyframes dropdown-animation {
+    0% {
+        opacity: 0;
+        margin-bottom: .75rem;
+    }
+
+    to {
+        opacity: 1;
+        margin-bottom: 0;
+    }
+}
+
+.dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.dropdown::-webkit-scrollbar-track {
+    background: #ebebeb;
+    border-radius: 8px;
+}
+
+.dark .dropdown::-webkit-scrollbar-track {
+    background-color: #3d3d3b;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 8px;
+}
 
 /* faq */
 .faq summary {
@@ -260,9 +275,7 @@ h3 {
 }
 
 
-
 /* contact form */
-
 input.error,
 textarea.error {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23f1416c'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f1416c' stroke='none'/%3e%3c/svg%3e");
@@ -276,14 +289,7 @@ textarea.error {
     @apply ltr:bg-position-[right_10px_center] rtl:bg-position-[10px_center];
 }
 
-
-
-
-
-
-
-
-/* swiper */
+/* slick slider */
 .slick-track {
     display: flex !important;
 }
@@ -331,17 +337,6 @@ textarea.error {
     opacity: 0.9;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* highchart */
 .highcharts-legend,
 .highcharts-contextbutton,
@@ -369,14 +364,41 @@ textarea.error {
 }
 
 
-/*  */
+/*  chart btns*/
 .activeMetal {
-    background-color: var(--color-gold);
-    color: var(--color-mercury)
+    @apply bg-gold text-mercury dark:text-background;
 }
 
-.activePeriod,.moreActivePeriod{
+.activePeriod,
+.moreActivePeriod {
     color: var(--color-yriel-yellow);
     border-color: var(--color-yriel-yellow);
     background-color: var(--color-dark-olive-brown);
+}
+
+/* back to top */
+@keyframes animation-scrolltop {
+    0% {
+        bottom: -48px
+    }
+
+    to {
+        bottom: 10px;
+    }
+}
+
+@utility animation-scrolltop {
+    animation: animation-scrolltop .4s ease-out 1;
+}
+
+
+
+
+
+.switch-button .checkbox:checked+.checkbox-label {
+    background-color: var(--color-gold);
+}
+
+.switch-button .checkbox:checked+.checkbox-label .ball {
+    transform: translate(12px);
 }

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+<!-- <html lang="en" dir="ltr"> -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>درباره ما</title>
     <link href="../css/output.css" rel="stylesheet">
+    <script src="../js/script.js" defer></script>
 </head>
 
 <body>
     <header class="top-0 z-10 fixed inset-x-0 bg-background">
-        <div class="flex justify-between items-center ml:my-2 max-ml:py-4.5 container">
-            <iframe class="max-ml:hidden bg-white dark:bg-karaka rounded-md w-50 h-15" scrolling="no"
+        <div class="flex max-ml:flex-row-reverse justify-between items-center ml:my-2 max-ml:py-4.5 container">
+            <iframe class="hidden max-xl:hidden dark:xl:block bg-white dark:bg-karaka rounded-md w-50 h-15"
+                scrolling="no" allowtransparency="true" frameborder="0"
+                src="https://daralsabaek.com/trading-gold.html"></iframe>
+            <iframe class="dark:hidden max-ml:hidden bg-white dark:bg-karaka rounded-md w-50 h-15" scrolling="no"
                 allowtransparency="true" frameborder="0" src="https://daralsabaek.com/trading-gold-light.html"></iframe>
             <a href="" title="">
                 <img class="max-ml:w-17.5" src="../assets/icons/headerLogo.svg" />
             </a>
-            <div class="max-ml:hidden ml:flex gap-4.5">
+
+            <div class="max-ml:hidden ml:flex gap-4.5 cursor-pointer">
                 <svg class="hidden dark:block" id="light_mode" data-name="light mode" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" viewBox="0 0 24 24">
                     <rect id="Rectangle_14298" data-name="Rectangle 14298" width="24" height="24" fill="none" />
@@ -45,13 +51,14 @@
                     </g>
                 </svg>
                 <span class="bg-[#81818143] w-px"></span>
-                <span class="ltr:hidden rtl:block font-IBMPlexSans" id="english">English</span>
-                <span class="rtl:hidden ltr:block" id="persian">فارسی</span>
+                <button class="ltr:hidden rtl:block font-IBMPlexSans" id="english">English</button>
+                <button class="rtl:hidden ltr:block" id="persian">فارسی</button>
             </div>
-            <div class="ml:hidden">
-                <svg class="text-[#d6ba32]" id="menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+            <div class="ml:hidden" id="mobileMenu">
+                <svg class="text-[#d6ba32]" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24">
-                    <g id="menu-2">
+                    <g>
                         <path
                             d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
                             transform="translate(2.25 6.25)" fill="currentColor"></path>
@@ -65,10 +72,181 @@
                     </g>
                 </svg>
             </div>
+            <div class="hidden z-10 fixed inset-0 bg-[#00000033]" id="menuContainer">
+                <div id="mobileDropdown"
+                    class="rtl:right-[-301px] ltr:left-[-301px] z-20 fixed inset-y-0 flex flex-col bg-background shadow-[0px_1px_9px_-3px_#0000000d] p-2.5 w-[300px] overflow-y-auto text-sm transition-all duration-400 ease-in-out">
+                    <div class="relative flex justify-between items-center p-2.5 text-base cursor-pointer" id="lang">
+                        <span class="flex items-center">
+                            <svg class="dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <g transform="translate(-172 -252)">
+                                    <g id="global">
+                                        <g transform="translate(0.204 3.546)">
+                                            <path
+                                                d="M7.2,14.408a7.2,7.2,0,1,1,7.2-7.2,7.2,7.2,0,0,1-7.2,7.2Zm0-13.4a6.2,6.2,0,1,0,6.2,6.2,6.2,6.2,0,0,0-6.2-6.2Z"
+                                                transform="translate(176.592 253.25)" />
+                                            <path
+                                                d="M1.473,13.068H.8a.506.506,0,0,1-.5-.5.5.5,0,0,1,.489-.5,19.763,19.763,0,0,1,0-11.057A.5.5,0,0,1,.3.5.506.506,0,0,1,.8,0h.67a.514.514,0,0,1,.409.208.5.5,0,0,1,.067.456,18.729,18.729,0,0,0,0,11.748.5.5,0,0,1-.067.456.528.528,0,0,1-.406.2Z"
+                                                transform="translate(180.313 253.919)" />
+                                            <path
+                                                d="M.5,13.074a.45.45,0,0,1-.161-.027.5.5,0,0,1-.315-.637A18.729,18.729,0,0,0,.028.662.5.5,0,0,1,.98.341a19.647,19.647,0,0,1,0,12.378.5.5,0,0,1-.48.355Z"
+                                                transform="translate(185.302 253.915)" />
+                                            <path
+                                                d="M6.534,1.977a19.552,19.552,0,0,1-5.529-.791A.5.5,0,0,1,0,1.173V.5A.514.514,0,0,1,.208.094.5.5,0,0,1,.663.027a18.729,18.729,0,0,0,11.748,0A.5.5,0,0,1,13.075.5v.67a.506.506,0,0,1-.5.5.5.5,0,0,1-.5-.489,19.633,19.633,0,0,1-5.541.8Z"
+                                                transform="translate(177.262 261.961)" />
+                                            <path
+                                                d="M12.568,1.979a.451.451,0,0,1-.161-.027,18.729,18.729,0,0,0-11.748,0,.5.5,0,0,1-.637-.315A.511.511,0,0,1,.344,1,19.647,19.647,0,0,1,12.722,1a.5.5,0,0,1,.315.637A.489.489,0,0,1,12.568,1.979Z"
+                                                transform="translate(177.259 256.968)" />
+                                        </g>
+                                        <path d="M0,0H24V24H0Z" transform="translate(172 252)" fill="rgba(0,0,0,0)"
+                                            opacity="0" />
+                                    </g>
+                                </g>
+                            </svg>
+                            زبان
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <span class="text-gold" id="selectedLang">فارسی</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6">
+                                <path id="listdown"
+                                    d="M1.64.808a.638.638,0,0,0-.915,0c-.276.258-.681.365-.405.623L4.56,5.389a.744.744,0,0,0,.977.02L9.778,1.78A.629.629,0,0,0,9.822.848a.743.743,0,0,0-1-.041l-3.742,3.2Z"
+                                    transform="translate(-0.228 -0.615)" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <div id="lang-dropdown"
+                            class="hidden top-11.25 ltr:right-3.75 rtl:right-0 ltr:left-0 rtl:left-3.75 z-2 absolute flex-col bg-background shadow-md rounded-[10px] divide-y divide-[#8181814d] text-[15px]">
+                            <button class="p-2.5 text-start">فارسی</button>
+                            <button class="p-2.5 text-start">english</button>
+                        </div>
+                    </div>
+                    <div class="relative bg-white dark:bg-karaka mt-2.5 px-4.75 py-2.25 rounded-[10px]" id="navList">
+                        <span class="flex justify-between items-center">
+                            <span class="flex items-center gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="24" viewBox="0 0 16 24">
+                                    <g>
+                                        <path
+                                            d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
+                                            transform="translate(2.25 6.25)" fill="currentColor" />
+                                        <path
+                                            d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
+                                            transform="translate(2.25 11.25)" fill="currentColor" />
+                                        <path
+                                            d="M18.75,1.5H.75A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h18a.755.755,0,0,1,.75.75A.755.755,0,0,1,18.75,1.5Z"
+                                            transform="translate(2.25 16.25)" fill="currentColor" />
+                                        <path d="M0,0H24V24H0Z" fill="none" opacity="0" />
+                                    </g>
+                                </svg>
+                                مغازه
+                            </span>
+                            <svg class="mx-1.5" xmlns="http://www.w3.org/2000/svg" width="10" height="6"
+                                viewBox="0 0 10 6">
+                                <path
+                                    d="M1.64.808a.638.638,0,0,0-.915,0c-.276.258-.681.365-.405.623L4.56,5.389a.744.744,0,0,0,.977.02L9.778,1.78A.629.629,0,0,0,9.822.848a.743.743,0,0,0-1-.041l-3.742,3.2Z"
+                                    transform="translate(-0.228 -0.615)" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <div id="navDropdown"
+                            class="hidden top-10.5 z-1 absolute inset-x-4 bg-white dark:bg-karaka shadow-md ps-1.75 pe-1 rounded-[10px] font-normal text-deep-black dark:text-[#f5f5f5] text-base transition-all will-change-transform group-hover:dropdown-animation">
+                            <div class="flex flex-col max-h-110 overflow-y-auto dropdown">
+                                <span class="pt-2.5 text-soft-gray text-sm">کاتالوگها</span>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">شمش
+                                    امارات</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">بار
+                                    سوئیسی</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">شمش
+                                    PAMP</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">مجیک
+                                    وایر</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">الماس</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">ساعت</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">زنجیره
+                                    موناکو</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">محصولات
+                                    ممتاز</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">نقره</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">عثمانی
+                                    لره
+                                    و گرجی</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">پلاتینیوم</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">مجموعه
+                                    دیزنی و مارول</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تست</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تست</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">جواهرات
+                                    نقره</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">طلای
+                                    سفید</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">ست
+                                    ها</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">دستبند
+                                    و
+                                    انگشتر</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تسبیح</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">اسلامی</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">حلقه
+                                    ها</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">دستبند</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">گوشواره</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">زنجیر</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">انتخاب
+                                    کودکان</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">مجموعه
+                                    سبک
+                                    وزن</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">جعبه
+                                    های هدیه</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">قیمت
+                                    عمده فروشی</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تست</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col mt-6.5 divide-y divide-[#8181814d] text-[15px]">
+                        <div class="flex justify-between items-center p-2.5">دارک مود
+                            <div class="switch-button">
+                                <input type="checkbox" class="absolute opacity-0 checkbox" id="switchCheckbox">
+                                <label for="switchCheckbox"
+                                    class="relative flex justify-between items-center bg-[#a0a0a0] px-[15px] py-2.5 rounded-[50px] checkbox-label">
+                                    <span
+                                        class="top-1/2 left-0.75 absolute bg-white rounded-full size-3.5 -translate-y-1/2 transform ball"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <a href="" class="p-2.5 hover:text-gold">خانه</a>
+                        <a href="" class="p-2.5 hover:text-gold">بلاگ</a>
+                        <a href="" class="p-2.5 hover:text-gold">ماشین حساب قیمت</a>
+                        <a href="" class="p-2.5 hover:text-gold">faq</a>
+                        <a href="" class="p-2.5 hover:text-gold">درباره ما</a>
+                        <a href="" class="p-2.5 border-[#8181814d] border-b hover:text-gold">تماس با ما</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="ml:hidden py-2 border-white border-y-3 dark:border-karaka">
-            <iframe class="bg-white dark:bg-karaka w-full h-24" src="https://daralsabaek.com/trading-gold-mobile.html"
-                scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+            <div class="bg-white dark:bg-karaka">
+                <iframe class="mx-auto w-auto h-24" src="https://daralsabaek.com/trading-gold-mobile.html"
+                    scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+            </div>
         </div>
         <nav class="max-ml:hidden border-[#81818143] border-y container">
             <ul class="flex items-center gap-14 mt-2.5 font-medium">
@@ -91,51 +269,119 @@
                         </svg>
                         مغازه
                     </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6">
-                        <path id="listdown"
+                    <svg class="group-hover:rotate-180 transition-all" xmlns="http://www.w3.org/2000/svg" width="10"
+                        height="6" viewBox="0 0 10 6">
+                        <path
                             d="M1.64.808a.638.638,0,0,0-.915,0c-.276.258-.681.365-.405.623L4.56,5.389a.744.744,0,0,0,.977.02L9.778,1.78A.629.629,0,0,0,9.822.848a.743.743,0,0,0-1-.041l-3.742,3.2Z"
                             transform="translate(-0.228 -0.615)" fill="currentColor" />
                     </svg>
                     <ul
-                        class="top-13 right-0 absolute flex bg-background rounded-[5px] overflow-y-auto font-normal will-change-transform">
-                        <div class="bg-white">
+                        class="hidden top-13 rtl:right-0 ltr:left-0 absolute group-hover:flex bg-white dark:bg-karaka shadow-md py-2.25 ps-1.75 pe-1 rounded-[5px] font-normal text-deep-black dark:text-[#f5f5f5] text-base transition-all will-change-transform group-hover:dropdown-animation">
+                        <div class="flex max-h-110 overflow-y-auto dropdown">
                             <div class="flex flex-col">
-                                <span class="text-dark-gray text-sm">کاتالوگها</span>
-                                <li class="px-4 py-2">تست</li>
+                                <span class="text-soft-gray text-sm">کاتالوگها</span>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">شمش
+                                    امارات</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">بار
+                                    سوئیسی</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">شمش
+                                    PAMP</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">مجیک
+                                    وایر</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">الماس</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">ساعت</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">زنجیره
+                                    موناکو</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">محصولات
+                                    ممتاز</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">نقره</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">عثمانی لره
+                                    و گرجی</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">پلاتینیوم</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">مجموعه
+                                    دیزنی و مارول</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تست</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تست</a>
+                            </div>
+                            <div class="flex flex-col mt-9">
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">جواهرات
+                                    نقره</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">طلای
+                                    سفید</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">ست
+                                    ها</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">دستبند و
+                                    انگشتر</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تسبیح</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">اسلامی</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">حلقه
+                                    ها</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">دستبند</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">گوشواره</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">زنجیر</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">انتخاب
+                                    کودکان</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">مجموعه سبک
+                                    وزن</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">جعبه
+                                    های هدیه</a>
+                                <a href="" class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">قیمت
+                                    عمده فروشی</a>
+                                <a href=""
+                                    class="px-3.25 py-2 hover:text-gold whitespace-nowrap transition-colors">تست</a>
                             </div>
                         </div>
                     </ul>
                 </li>
-                <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
+                <li class="hover:text-gold dark:text-philippine-silver transition-colors">
                     <a href="" title="">خانه</a>
                 </li>
-                <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
+                <li class="hover:text-gold dark:text-philippine-silver transition-colors">
                     <a href="" title="">بلاگ</a>
                 </li>
-                <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
+                <li class="hover:text-gold dark:text-philippine-silver transition-colors">
                     <a href="" title="">ماشین حساب قیمت</a>
                 </li>
-                <li class="font-IBMPlexSans hover:text-light-yellow dark:text-philippine-silver transition-colors">
+                <li class="font-IBMPlexSans hover:text-gold dark:text-philippine-silver transition-colors">
                     <a href="" title="">faq</a>
                 </li>
-                <li class="text-gold dark:text-yriel-yellow transition-colors">
+                <li class="hover:text-gold dark:text-philippine-silver transition-colors">
                     <a href="" title="">درباره ما</a>
                 </li>
-                <li class="hover:text-light-yellow dark:text-philippine-silver transition-colors">
+                <li class="hover:text-gold dark:text-philippine-silver transition-colors">
                     <a href="" title="">تماس با ما</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main class="mb-15 max-ml:pt-46.5 ml:pt-35">
-        <div class="flex justify-center items-center gap-5 my-10">
+        <div class="flex justify-center items-center gap-5 mt-12 mb-9">
             <span class="bg-gold w-7.5 h-[3px]"></span>
             <h1 class="font-normal">درباره ما</h1>
             <span class="bg-gold w-7.5 h-[3px]"></span>
         </div>
         <div class="bg-white dark:bg-dark-olive-gray lg:mx-39 max-ml:mx-6 ml:max-lg:mx-32 p-5 rounded-2xl">
-            <h2 class="mb-2 py-3 text-gold text-center">مجموعه دارالسبائک</h2>
-            <h3 class="font-normal text-center">تأسیس شده در کشور کویت، تحت شماره ثبت تجاری ۴۳۲۹۶۸ صادر شده توسط وزارت
+            <h2 class="py-3 text-gold text-center">مجموعه دارالسبائک</h2>
+            <h3 class="font-semibold text-center">تأسیس شده در کشور کویت، تحت شماره ثبت تجاری ۴۳۲۹۶۸ صادر شده توسط وزارت
                 بازرگانی و
                 صنایع.</h3>
             <ul class="flex flex-col gap-7.5 ps-[15px] pt-8 text-[15px] marker:text-gold list-disc">
@@ -157,7 +403,7 @@
                 <li>شرکت خدمات فنی و کامپیوتری دارالسبایک به منظور خدمت رسانی ویژه به فعالیت های شرکت و توسعه سیستم
                     فناوری و توسعه دیجیتال شرکت و همچنین تجارت طلائی شرکت های محلی و بین المللی تأسیس شد.</li>
             </ul>
-            <div class="flex flex-col gap-16 pt-14 max-ml:text-sm ml:text-lg">
+            <div class="flex flex-col gap-8 pt-14 max-ml:text-sm ml:text-lg">
                 <p>این شرکت به طیف گسترده‌ای از مشتریانی که به دنبال طرح‌های پس‌انداز و معاملاتی هستند، سرمایه‌گذاران
                     نخبه، فروشگاه‌های جواهرات و بانک‌ها خدمات ارائه می‌دهد.</p>
                 <p>این مسیر به شکلی موفق در مدیریت فعالیت تجارت شمش‌های طلا و طلای زینتی پیشرفت کرده است، و خدمات و
@@ -222,71 +468,76 @@
                     </div>
                 </div>
                 <div class="max-ml:w-[45.5%] ml:w-1/3 font-semibold">
-                    <span class="block">
+                    <span class="block mb-1.5 text-base">
                         دانلود برنامه از</span>
-                    <div class="flex max-ml:flex-col gap-5 font-IBMPlexSans" dir="ltr">
-                        <svg class="max-ml:size-full" id="enappstore" xmlns="http://www.w3.org/2000/svg" width="160"
-                            height="42" viewBox="0 0 160 42">
-                            <rect id="Rectangle_11614" data-name="Rectangle 11614" width="160" height="42" rx="6" />
-                            <g id="Group_17928" data-name="Group 17928" transform="translate(20.571 2)">
-                                <g id="apple" transform="translate(0 4.095)">
-                                    <path id="Path_4383" data-name="Path 4383"
-                                        d="M47.658,4.429A5.66,5.66,0,0,0,49.294,0a7.392,7.392,0,0,0-4.629,2.1A5.421,5.421,0,0,0,43,6.4,6.163,6.163,0,0,0,47.658,4.429Zm3.365,11.225a6.53,6.53,0,0,1,3.014-5.479,6.454,6.454,0,0,0-5.107-2.851c-2.176-.228-4.243,1.318-5.348,1.318s-2.8-1.288-4.607-1.253A6.807,6.807,0,0,0,33.2,11c-2.465,4.4-.632,10.93,1.77,14.5,1.174,1.749,2.572,3.711,4.408,3.64,1.772-.071,2.44-1.179,4.578-1.179s2.738,1.179,4.609,1.143c1.9-.035,3.109-1.783,4.273-3.538a16.085,16.085,0,0,0,1.934-4.092A6.34,6.34,0,0,1,51.023,15.655Z"
-                                        transform="translate(-32.029)" fill="#ccd0d2" />
-                                </g>
-                                <g id="Group_1803" data-name="Group 1803" transform="translate(31.429)">
-                                    <text id="Download_App" transform="translate(0 13)" fill="#fff" font-size="10"
-                                        font-weight="600">
-                                        <tspan x="0" y="0">Download App</tspan>
-                                    </text>
-                                    <text id="App_Store" transform="translate(0 31)" fill="#fff" font-size="18">
-                                        <tspan x="0" y="0">App Store</tspan>
-                                    </text>
-                                </g>
-                            </g>
-                        </svg>
-                        <svg class="max-ml:size-full" id="engooglestore" xmlns="http://www.w3.org/2000/svg" width="160"
-                            height="42" viewBox="0 0 160 42">
-                            <rect id="Rectangle_11615" width="160" height="42" rx="6" />
-                            <g id="Group_17929" transform="translate(16 2.048)">
-                                <g id="playstore" transform="translate(0 6.333)">
-                                    <g id="Group_1802" data-name="Group 1802" transform="translate(0 0.001)">
-                                        <path id="Path_4384"
-                                            d="M64.792,8.85C61.8,7.176,56.994,4.487,49.542.315a1.8,1.8,0,0,0-1.58-.206L60.748,12.894Z"
-                                            transform="translate(-46.733 -0.012)" fill="#32bbff" />
-                                        <path id="Path_4385"
-                                            d="M24.778,1.93a1.837,1.837,0,0,0-.272.116,1.8,1.8,0,0,0-.957,1.6V25.787a1.8,1.8,0,0,0,.957,1.6,1.861,1.861,0,0,0,.272.116L37.563,14.716Z"
-                                            transform="translate(-23.549 -1.833)" fill="#32bbff" />
-                                        <path id="Path_4386"
-                                            d="M60.742,255.98,47.956,268.766a1.778,1.778,0,0,0,1.58-.207c7.227-4.047,11.977-6.7,15.005-8.392l.249-.14Z"
-                                            transform="translate(-46.728 -243.098)" fill="#32bbff" />
+                    <div class="flex max-ml:flex-col justify-end gap-1.5 rtl:sm:max-ml:ps-8 ltr:sm:max-ml:pe-8 font-IBMPlexSans"
+                        dir="ltr">
+                        <a href="">
+                            <svg class="max-ml:w-[43vw] max-ml:h-full" id="enappstore"
+                                xmlns="http://www.w3.org/2000/svg" width="120" height="32" viewBox="0 0 160 42">
+                                <rect id="Rectangle_11614" data-name="Rectangle 11614" width="160" height="42" rx="6" />
+                                <g id="Group_17928" data-name="Group 17928" transform="translate(20.571 2)">
+                                    <g id="apple" transform="translate(0 4.095)">
+                                        <path id="Path_4383" data-name="Path 4383"
+                                            d="M47.658,4.429A5.66,5.66,0,0,0,49.294,0a7.392,7.392,0,0,0-4.629,2.1A5.421,5.421,0,0,0,43,6.4,6.163,6.163,0,0,0,47.658,4.429Zm3.365,11.225a6.53,6.53,0,0,1,3.014-5.479,6.454,6.454,0,0,0-5.107-2.851c-2.176-.228-4.243,1.318-5.348,1.318s-2.8-1.288-4.607-1.253A6.807,6.807,0,0,0,33.2,11c-2.465,4.4-.632,10.93,1.77,14.5,1.174,1.749,2.572,3.711,4.408,3.64,1.772-.071,2.44-1.179,4.578-1.179s2.738,1.179,4.609,1.143c1.9-.035,3.109-1.783,4.273-3.538a16.085,16.085,0,0,0,1.934-4.092A6.34,6.34,0,0,1,51.023,15.655Z"
+                                            transform="translate(-32.029)" fill="#ccd0d2" />
                                     </g>
-                                    <path id="Path_4387"
-                                        d="M23.549,255.98v11.071a1.8,1.8,0,0,0,.957,1.6,1.862,1.862,0,0,0,.272.116L37.563,255.98Z"
-                                        transform="translate(-23.549 -243.097)" fill="#2c9fd9" />
-                                    <path id="Path_4388"
-                                        d="M44.413.3a1.8,1.8,0,0,0-1.852-.09L55.424,13.077l4.238-4.238C56.669,7.164,51.865,4.476,44.413.3Z"
-                                        transform="translate(-41.604 0)" fill="#29cc5e" />
-                                    <path id="Path_4389"
-                                        d="M55.424,252.126,42.561,264.989a1.79,1.79,0,0,0,1.852-.09c7.227-4.047,11.977-6.7,15.005-8.392l.249-.14Z"
-                                        transform="translate(-41.604 -239.437)" fill="#d93f21" />
-                                    <path id="Path_4390"
-                                        d="M304.074,177.04a1.793,1.793,0,0,0-.923-1.576s-1.147-.64-4.664-2.607L294.3,177.04l4.187,4.187c3.478-1.953,4.66-2.612,4.66-2.612A1.793,1.793,0,0,0,304.074,177.04Z"
-                                        transform="translate(-280.677 -164.158)" fill="#ffd500" />
-                                    <path id="Path_4391"
-                                        d="M303.151,257.556a1.793,1.793,0,0,0,.923-1.576H294.3l4.187,4.187C301.969,258.214,303.151,257.556,303.151,257.556Z"
-                                        transform="translate(-280.677 -243.097)" fill="#fa0" />
+                                    <g id="Group_1803" data-name="Group 1803" transform="translate(31.429)">
+                                        <text id="Download_App" transform="translate(0 13)" fill="#fff" font-size="10"
+                                            font-weight="600">
+                                            <tspan x="0" y="0">Download App</tspan>
+                                        </text>
+                                        <text id="App_Store" transform="translate(0 31)" fill="#fff" font-size="18">
+                                            <tspan x="0" y="0">App Store</tspan>
+                                        </text>
+                                    </g>
                                 </g>
-                                <g id="Group_1804" transform="translate(31.052)">
-                                    <text transform="translate(0 13)" fill="#fff" font-size="10" font-weight="600">
-                                        <tspan x="0" y="0">Download App</tspan>
-                                    </text>
-                                    <text transform="translate(0 31.429)" fill="#fff" font-size="18">
-                                        <tspan x="0" y="0">Google Play</tspan>
-                                    </text>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg class="max-ml:w-[43vw] max-ml:h-full" id="engooglestore"
+                                xmlns="http://www.w3.org/2000/svg" width="120" height="32" viewBox="0 0 160 42">
+                                <rect id="Rectangle_11615" width="160" height="42" rx="6" />
+                                <g id="Group_17929" transform="translate(16 2.048)">
+                                    <g id="playstore" transform="translate(0 6.333)">
+                                        <g id="Group_1802" data-name="Group 1802" transform="translate(0 0.001)">
+                                            <path id="Path_4384"
+                                                d="M64.792,8.85C61.8,7.176,56.994,4.487,49.542.315a1.8,1.8,0,0,0-1.58-.206L60.748,12.894Z"
+                                                transform="translate(-46.733 -0.012)" fill="#32bbff" />
+                                            <path id="Path_4385"
+                                                d="M24.778,1.93a1.837,1.837,0,0,0-.272.116,1.8,1.8,0,0,0-.957,1.6V25.787a1.8,1.8,0,0,0,.957,1.6,1.861,1.861,0,0,0,.272.116L37.563,14.716Z"
+                                                transform="translate(-23.549 -1.833)" fill="#32bbff" />
+                                            <path id="Path_4386"
+                                                d="M60.742,255.98,47.956,268.766a1.778,1.778,0,0,0,1.58-.207c7.227-4.047,11.977-6.7,15.005-8.392l.249-.14Z"
+                                                transform="translate(-46.728 -243.098)" fill="#32bbff" />
+                                        </g>
+                                        <path id="Path_4387"
+                                            d="M23.549,255.98v11.071a1.8,1.8,0,0,0,.957,1.6,1.862,1.862,0,0,0,.272.116L37.563,255.98Z"
+                                            transform="translate(-23.549 -243.097)" fill="#2c9fd9" />
+                                        <path id="Path_4388"
+                                            d="M44.413.3a1.8,1.8,0,0,0-1.852-.09L55.424,13.077l4.238-4.238C56.669,7.164,51.865,4.476,44.413.3Z"
+                                            transform="translate(-41.604 0)" fill="#29cc5e" />
+                                        <path id="Path_4389"
+                                            d="M55.424,252.126,42.561,264.989a1.79,1.79,0,0,0,1.852-.09c7.227-4.047,11.977-6.7,15.005-8.392l.249-.14Z"
+                                            transform="translate(-41.604 -239.437)" fill="#d93f21" />
+                                        <path id="Path_4390"
+                                            d="M304.074,177.04a1.793,1.793,0,0,0-.923-1.576s-1.147-.64-4.664-2.607L294.3,177.04l4.187,4.187c3.478-1.953,4.66-2.612,4.66-2.612A1.793,1.793,0,0,0,304.074,177.04Z"
+                                            transform="translate(-280.677 -164.158)" fill="#ffd500" />
+                                        <path id="Path_4391"
+                                            d="M303.151,257.556a1.793,1.793,0,0,0,.923-1.576H294.3l4.187,4.187C301.969,258.214,303.151,257.556,303.151,257.556Z"
+                                            transform="translate(-280.677 -243.097)" fill="#fa0" />
+                                    </g>
+                                    <g id="Group_1804" transform="translate(31.052)">
+                                        <text transform="translate(0 13)" fill="#fff" font-size="10" font-weight="600">
+                                            <tspan x="0" y="0">Download App</tspan>
+                                        </text>
+                                        <text transform="translate(0 31.429)" fill="#fff" font-size="18">
+                                            <tspan x="0" y="0">Google Play</tspan>
+                                        </text>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -323,19 +574,18 @@
         </div>
     </footer>
     <a href="#" title=""
-        class="bottom-2.5 left-2.5 fixed flex items-center gap-2.5 bg-black active:bg-transparent dark:bg-transparent px-4 py-2.75 border border-gold rounded-full font-semibold text-yellow text-xs">
+        class="bottom-2.5 left-2.5 fixed flex items-center gap-2.5 bg-white hover:bg-transparent dark:bg-background px-4 py-2.75 border border-gold rounded-full font-semibold text-gold text-xs transition-colors">
         <svg class="w-5 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path class="fill-yellow"
+            <path class="fill-gold"
                 d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z" />
         </svg>
         کمک
     </a>
-    <button class="right-2.5 bottom-2.5 fixed opacity-30 hover:opacity-100 p-1 border-2 border-gold rounded-full">
+    <button id="backToTop"
+        class="hidden right-2.5 bottom-2.5 fixed opacity-60 hover:opacity-100 p-1 border-2 border-gold rounded-full transition-opacity animation-scrolltop">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="#f8d25c" />
-            <path
-                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
-                fill="#f8d25c" />
+            <path class="dark:stroke-[#F8D25C]" d="M12 20V4M12 4L6 10M12 4L18 10" stroke="#A99340" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
         </svg>
     </button>
 </body>
