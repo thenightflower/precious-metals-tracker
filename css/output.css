@@ -396,6 +396,9 @@
   .mt-12 {
     margin-top: calc(var(--spacing) * 12);
   }
+  .mt-13 {
+    margin-top: calc(var(--spacing) * 13);
+  }
   .mt-15 {
     margin-top: calc(var(--spacing) * 15);
   }
@@ -410,9 +413,6 @@
   }
   .mb-2\.5 {
     margin-bottom: calc(var(--spacing) * 2.5);
-  }
-  .mb-3 {
-    margin-bottom: calc(var(--spacing) * 3);
   }
   .mb-3\.25 {
     margin-bottom: calc(var(--spacing) * 3.25);
@@ -434,6 +434,9 @@
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
+  }
+  .mb-14 {
+    margin-bottom: calc(var(--spacing) * 14);
   }
   .mb-14\.5 {
     margin-bottom: calc(var(--spacing) * 14.5);
@@ -603,9 +606,6 @@
   }
   .animation-scrolltop {
     animation: animation-scrolltop .4s ease-out 1;
-  }
-  .cursor-not-allowed {
-    cursor: not-allowed;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -1138,9 +1138,6 @@
   }
   .opacity-30 {
     opacity: 30%;
-  }
-  .opacity-50 {
-    opacity: 50%;
   }
   .opacity-60 {
     opacity: 60%;
@@ -2167,6 +2164,7 @@ h2, h4, h5, h6 {
   display: flex;
   position: relative;
   padding-inline-start: 55px;
+  padding-inline-end: 15px;
 }
 .faq summary::before {
   width: 20px;

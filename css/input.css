@@ -244,6 +244,7 @@ h6 {
     display: flex;
     position: relative;
     padding-inline-start: 55px;
+    padding-inline-end: 15px;
 }
 
 .faq summary::before {
