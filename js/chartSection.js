@@ -495,7 +495,7 @@ morePeriodButtons.forEach((btn, index) => {
         morePeriodButtons.forEach(b => b.classList.remove("moreActivePeriod"));
         btn.classList.add("moreActivePeriod");
 
-        currentPeriod = index + 6; // شروع از 6 // 1M=6, 3M=7, 6M=8, 1Y=9
+        currentPeriod = index + 6; // 1M=6, 3M=7, 6M=8, 1Y=9
         fetchChartData(currentMetal, currentPeriod);
     });
 });
