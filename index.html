@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<!-- <html lang="en" dir="ltr"> -->
+<html lang="en" dir="ltr">
+<!-- <html lang="fa" dir="rtl"> -->
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,10 @@
     <link href="./css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="css/slick.css">
     <script src="js/script.js" defer></script>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/chartSection.js"></script>
 
     <script src="vendor/highchartsJS/highcharts.js"></script>
     <script src="vendor/highchartsJS/series-label.js"></script>
@@ -114,7 +118,7 @@
                             زبان
                         </span>
                         <span class="flex items-center gap-1.5">
-                            <span class="text-gold" id="selectedLang">فارسی</span>
+                            <span class="text-gold" id="selectedLang">english</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6">
                                 <path id="listdown"
                                     d="M1.64.808a.638.638,0,0,0-.915,0c-.276.258-.681.365-.405.623L4.56,5.389a.744.744,0,0,0,.977.02L9.778,1.78A.629.629,0,0,0,9.822.848a.743.743,0,0,0-1-.041l-3.742,3.2Z"
@@ -381,11 +385,11 @@
             </ul>
         </nav>
     </header>
-    <section class="pt-39 container">
+    <section class="max-ml:pt-52 ml:pt-39 container">
         <div
-            class="flex justify-center items-center gap-3.25 bg-white dark:bg-karaka shadow-[0_3px_6px_#93939329] mb-4 py-0.5 rounded-[10px] text-sm">
+            class="flex max-md:flex-col justify-center items-center md:gap-3.25 bg-white dark:bg-karaka shadow-[0_3px_6px_#93939329] mb-4 max-md:px-2 py-0.5 max-md:pt-2.5 rounded-[10px] text-sm">
             <span>همین حالا می‌توانید اپلیکیشن ما را دانلود کنید!</span>
-            <div class="flex max-ml:flex-col gap-5 font-IBMPlexSans" dir="ltr">
+            <div class="flex gap-5 font-IBMPlexSans" dir="ltr">
                 <svg class="w-22.5" id="enappstore" xmlns="http://www.w3.org/2000/svg" width="160" height="42"
                     viewBox="0 0 160 42">
                     <rect id="Rectangle_11614" data-name="Rectangle 11614" width="160" height="42" rx="6" />
@@ -462,11 +466,11 @@
             </div>
         </span>
     </section>
-    <section class="flex gap-14 container">
-        <div class="flex flex-col w-[24%]" id="currencyـfluctuations">
+    <section class="flex max-xl:flex-col gap-14 container">
+        <div class="flex xl:flex-col max-xl:flex-wrap max-xl:gap-x-5 xl:w-[24%]" id="currencyـfluctuations">
         </div>
         <div class="grow">
-            <div class="flex justify-between items-center">
+            <div class="flex max-lg:flex-wrap max-md:justify-center md:justify-between items-center max-md:gap-4">
                 <div class="flex items-center gap-3 font-semibold text-sm">
                     <button id="btn-gold"
                         class="bg-mercury dark:bg-arsenic px-5 py-1.5 rounded-md text-dark-gray dark:text-philippine-silver activeMetal metalBtn">طلا</button>
@@ -475,7 +479,7 @@
                     <button id="btn-platinum"
                         class="bg-mercury dark:bg-arsenic px-5 py-1.5 rounded-md text-dark-gray dark:text-philippine-silver metalBtn">پلاتینیوم</button>
                 </div>
-                <div class="flex items-center gap-3 font-normal text-dark-gray">
+                <div class="flex max-sm:flex-wrap items-center lg:gap-3 max-lg:gap-2 font-normal text-dark-gray">
                     <button
                         class="bg-mercury dark:bg-coffee-bean px-4.5 py-0.75 border border-[#626262] rounded-md dark:text-philippine-silver activePeriod periodBtn">10m</button>
                     <button
@@ -523,8 +527,9 @@
         </div>
         <div class="container">
             <div class="flex justify-center specialBlogSlider">
-                <a href="#" class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)]">
-                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                <a href="#"
+                    class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)] text-white">
+                    <img class="rounded-[10px] w-full" src="assets/images/b.jpeg" alt="Slide 1">
                     <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
                         <span class="text-sm">
                             20/09/2025 12:22 م
@@ -533,8 +538,9 @@
                             دلار باقی ماند</p>
                     </div>
                 </a>
-                <a href="#" class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)]">
-                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                <a href="#"
+                    class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)] text-white">
+                    <img class="rounded-[10px] w-full" src="assets/images/b.jpeg" alt="Slide 1">
                     <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
                         <span class="text-sm">
                             20/09/2025 12:22 م
@@ -544,8 +550,9 @@
                             دلار باقی ماند</p>
                     </div>
                 </a>
-                <a href="#" class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)]">
-                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                <a href="#"
+                    class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)] text-white">
+                    <img class="rounded-[10px] w-full" src="assets/images/b.jpeg" alt="Slide 1">
                     <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
                         <span class="text-sm">
                             20/09/2025 12:22 م
@@ -555,8 +562,9 @@
                             دلار باقی ماند</p>
                     </div>
                 </a>
-                <a href="#" class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/2)]">
-                    <img class="rounded-[10px]" src="assets/images/b.jpeg" alt="Slide 1">
+                <a href="#"
+                    class="opacity-60 border border-coffee-bean rounded-[10px] !w-[calc(100%/3-52px/3)] text-white">
+                    <img class="rounded-[10px] w-full" src="assets/images/b.jpeg" alt="Slide 1">
                     <div class="bottom-0 absolute inset-x-0 flex flex-col justify-end px-2 pb-3 rounded-lg h-37.5 text">
                         <span class="text-sm">
                             20/09/2025 12:22 م
@@ -652,19 +660,18 @@
         </div>
     </section>
     <section
-        class="flex items-center gap-19 bg-white dark:bg-[linear-gradient(90deg,#232423_0%,#2b2c2c_100%)] shadow-[0_.5rem_1.5rem_.5rem_#00000013] mx-9.5 mb-18 px-16 rounded-[10px]">
-        <div class="w-[37%]">
+        class="flex max-ml:flex-col items-center gap-19 bg-white dark:bg-[linear-gradient(90deg,#232423_0%,#2b2c2c_100%)] shadow-[0_.5rem_1.5rem_.5rem_#00000013] max-md:mx-2 md:mx-9.5 mb-18 max-ml:px-10 ml:px-16 rounded-[10px]">
+        <div class="ml:w-[37%]">
             <img class="-my-10 object-cover" src="./assets/images/downloadApp.png" alt="">
         </div>
-        <div class="w-[calc(63%-2.375rem)]">
-            <span class="font-semibold text-gold text-3xl">هم اکنون برنامه را دانلود کنید</span>
-            <p class="mt-1.5 mb-15.5 font-normal text-2xl">
+        <div class="max-ml:pb-10 ml:w-[calc(63%-2.375rem)]">
+            <span class="font-semibold text-gold max-lg:text-xl lg:text-3xl">هم اکنون برنامه را دانلود کنید</span>
+            <p class="mt-1.5 max-xl:mb-10 xl:mb-15.5 font-normal ml:max-xl:text-sm max-ml:text-xl text-2xl">
                 قیمت فلزات معدنی و آخرین اخبار اقتصادی و تأثیر آنها بر بازار فلزات را دنبال کنید و هرجا هستید،
                 خرید و فروش فلزات را انجام دهید.
             </p>
-            <div class="flex max-ml:flex-col justify-end gap-5 font-IBMPlexSans" dir="ltr">
-                <svg class="max-ml:size-full" xmlns="http://www.w3.org/2000/svg" width="160" height="42"
-                    viewBox="0 0 160 42">
+            <div class="flex max-sm:flex-wrap max-ml:justify-center ml:justify-end gap-5 font-IBMPlexSans" dir="ltr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="42" viewBox="0 0 160 42">
                     <rect width="160" height="42" rx="6" />
                     <g data-name="Group 17928" transform="translate(20.571 2)">
                         <g transform="translate(0 4.095)">
@@ -682,8 +689,7 @@
                         </g>
                     </g>
                 </svg>
-                <svg class="max-ml:size-full" xmlns="http://www.w3.org/2000/svg" width="160" height="42"
-                    viewBox="0 0 160 42">
+                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="42" viewBox="0 0 160 42">
                     <rect width="160" height="42" rx="6" />
                     <g transform="translate(16 2.048)">
                         <g transform="translate(0 6.333)">
@@ -887,44 +893,6 @@
                 stroke-linecap="round" stroke-linejoin="round" />
         </svg>
     </button>
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
-        $('.specialBlogSlider').slick({
-            centerMode: true,
-            centerPadding: '60px',
-            slidesToShow: 3,
-            rtl: true,
-            arrows: true,
-            dots: true, // دایره‌های pagination
-            // responsive: [
-            //     {
-            //         breakpoint: 768,
-            //         settings: {
-            //             arrows: false,
-            //             centerMode: true,
-            //             centerPadding: '40px',
-            //             slidesToShow: 3
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 480,
-            //         settings: {
-            //             arrows: false,
-            //             centerMode: true,
-            //             centerPadding: '40px',
-            //             slidesToShow: 1
-            //         }
-            //     }
-            // ]
-        });
-    </script>
-
-    <script src="js/main.js"></script>
-
-
 </body>
 
 </html>

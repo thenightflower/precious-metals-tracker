@@ -1,8 +1,8 @@
-//index 
+//index page
 let updateInterval = 15;
 let countdownTimer = null;
 
-//chart
+//chart page
 let currentMetal = 1; // طلا
 let currentPeriod = document.getElementById('currencyـfluctuations') ? 0 : 6;
 
@@ -65,13 +65,15 @@ const displayPrices = (data) => {
     ];
     if (currencyـfluctuations) {
         currencyـfluctuations.innerHTML = priceCards.map(group => `
-            <span class="mt-1.5 mb-5 font-semibold text-gold text-sm">${group.group}</span>
+            <div class="metalGroup">
+            <span class="mt-1.5 max-xl:mb-1.5 xl:mb-5 font-semibold block max-xl:w-full text-gold  text-sm">${group.group}</span>
             ${group.items.map(item => `
-             <span class="flex justify-between items-center mb-2.5 pb-3.25 border-[#81818143] border-b">
+             <span class="flex justify-between max-xl:flex-col max-xl:items-start max-xl:gap-2.5 xl:items-center mb-2.5 pb-3.25 xl:border-[#81818143] xl:border-b">
                   <span>${item.title}</span>
-                  <span class="flex items-center gap-1.75 font-semibold">
+                  <span class="flex max-xl:w-full items-center gap-1.75 font-semibold">
                        <span class="text-base">${item.value.toLocaleString('fa-IR', { maximumFractionDigits: 3 })}</span>
                        <span class="text-xs">د.ک</span>
+                       <span class="max-xl:grow max-xl:flex max-xl:justify-end">
                           ${item.trend === 'up' ? `
                                <svg xmlns="http://www.w3.org/2000/svg" width="12.388" height="7.538" viewBox="0 0 12.388 7.538">
                                    <path d="M6.77.778a1,1,0,0,1,1.459,0l5.192,5.538A1,1,0,0,1,12.692,8H2.308a1,1,0,0,1-.73-1.684Z" transform="translate(-1.306 -0.462)" fill="#3bc389" />
@@ -85,9 +87,11 @@ const displayPrices = (data) => {
                             <rect width="15" height="3" rx="1.5" transform="translate(0 3)" fill="#d5933d"/>
                             <rect width="15" height="10" fill="none"/>
                          </svg>`: ''}
+                         </span>
                   </span>
              </span>
-            `).join('')}`).join('');
+            `).join('')}
+             </div>`).join('');
     }
     if (more_currencyـfluctuations) {
 
@@ -123,9 +127,6 @@ const displayPrices = (data) => {
       </span>
     `).join('')
     }
-
-
-
 }
 
 // به‌روزرسانی زمان
@@ -173,6 +174,8 @@ const fetchPrices = async () => {
 };
 
 const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
+
+
     try {
         const response = await fetch(`https://api.daralsabaek.com/api/Chart/GetMetalPricesChartData?metalSymbol=${metalSymbol}&periodType=${periodType}`);
         if (!response.ok) throw new Error(`خطا در دریافت داده‌ها: ${response.status}`);
@@ -180,15 +183,83 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
         const data = await response.json();
         console.log(data);
 
+
+        // const originalTimes = data.rangeOfXaxis.map(timeStr => {
+        //     const date = new Date(timeStr);
+        //     // به timezone محلی کاربر تبدیل می‌شه
+        //     return date.toLocaleString('en-US', {
+        //         month: '2-digit',
+        //         day: '2-digit',
+        //         hour: '2-digit',
+        //         minute: '2-digit',
+        //         second: '2-digit'
+        //     });
+        // });
+        const originalTimes = data.rangeOfXaxis.map(timeStr => {
+            const date = new Date(timeStr);
+
+            // بر اساس periodType فرمت متفاوت
+            if (periodType >= 0 && periodType <= 2) {
+                // فقط ساعت و دقیقه
+                return date.toLocaleString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+            } else if (periodType >= 3 && periodType <= 5) {
+                // روز مخفف + ساعت
+                return date.toLocaleString('en-US', {
+                    weekday: 'short',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                });
+            } else {
+                // تاریخ مخفف برای periodType >= 6
+                return date.toLocaleString('en-US', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: '2-digit'
+                });
+            }
+        });
         const xData = data.rangeOfXaxis.map(x => new Date(x).getTime());
         const yData = data.rangeOfYaxis;
 
         const rawMinY = Math.min(...yData);
-        const minY = Math.floor(rawMinY / 0.005) * 0.005;
+        const rawMaxY = Math.max(...yData);
+        const difference = rawMaxY - rawMinY;
 
-        let tickInterval = 0.005;
-        if (metalSymbol === 2) tickInterval = 0.0005;
-        if (metalSymbol === 3) tickInterval = 0.01;
+        // محاسبه tickInterval بر اساس اختلاف داده‌ها
+        let tickInterval;
+        if (difference >= 10) {
+            tickInterval = Math.ceil(difference / 4); // حداکثر 4 تیک
+        } else if (difference >= 5) {
+            tickInterval = difference / 3; // حداکثر 3 تیک
+        } else if (difference >= 1) {
+            tickInterval = difference / 4; // حداکثر 4 تیک
+        } else if (difference >= 0.1) {
+            tickInterval = difference / 3; // حداکثر 3 تیک
+        } else if (difference >= 0.01) {
+            tickInterval = difference / 4; // حداکثر 4 تیک
+        } else {
+            // برای اختلافات خیلی کم
+            tickInterval = difference / 3 || 0.001;
+        }
+
+        // رند کردن tickInterval به عدد مناسب
+        if (tickInterval >= 1) {
+            tickInterval = Math.ceil(tickInterval);
+        } else if (tickInterval >= 0.1) {
+            tickInterval = Math.ceil(tickInterval * 10) / 10;
+        } else if (tickInterval >= 0.01) {
+            tickInterval = Math.ceil(tickInterval * 100) / 100;
+        } else {
+            tickInterval = Math.ceil(tickInterval * 1000) / 1000;
+        }
+
+        const minY = Math.floor(rawMinY / tickInterval) * tickInterval;
+        const maxY = Math.ceil(rawMaxY / tickInterval) * tickInterval;
 
         const seriesData = xData.map((x, i) => [x, yData[i]]);
 
@@ -196,25 +267,65 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
             chart: {
                 type: 'area',
                 backgroundColor: 'var(--color-background)',
+                spacingRight: 30,
+                marginRight: 30,
             },
             title: {
                 text: 'نمودار قیمت فلزات',
                 align: 'center'
             },
+            // xAxis: {
+            //     title: { text: 'بازه زمانی' },
+            //     type: 'datetime',
+            //     tickLength: 0,
+            //     min: Math.min(...xData),
+            //     max: Math.max(...xData),
+            //     startOnTick: false,
+            //     endOnTick: false,
+            //     tickPixelInterval: 100,
+            //     labels: {
+            //         formatter: function () {
+            //             // به جای findIndex از map استفاده می‌کنیم
+            //             const timestamps = data.rangeOfXaxis.map(x => new Date(x).getTime());
+            //             const closestIndex = timestamps.reduce((closest, current, index) => {
+            //                 const currentDiff = Math.abs(current - this.value);
+            //                 const closestDiff = Math.abs(timestamps[closest] - this.value);
+            //                 return currentDiff < closestDiff ? index : closest;
+            //             }, 0);
+
+            //             return originalTimes[closestIndex] || '';
+            //         },
+            //         overflow: 'allow',
+            //         step: 1 // اطمینان از نمایش همه لیبل‌ها
+            //     }
+            // },
             xAxis: {
                 title: { text: 'بازه زمانی' },
                 type: 'datetime',
                 tickLength: 0,
+                // tickPositions: xData,
+                min: Math.min(...xData),
+                max: Math.max(...xData),
+                startOnTick: false,
+                endOnTick: false,
+                // tickPixelInterval: 100,
                 labels: {
                     formatter: function () {
-                        const date = new Date(this.value);
-                        let hours = date.getHours();
-                        const minutes = date.getMinutes();
-                        const ampm = hours >= 12 ? 'PM' : 'AM';
-                        hours = hours % 12;
-                        if (hours === 0) hours = 12;
-                        const minsStr = minutes < 10 ? '0' + minutes : minutes;
-                        return `${hours}:${minsStr} ${ampm}`;
+                        const timestamps = data.rangeOfXaxis.map(x => new Date(x).getTime());
+                        const closestIndex = timestamps.reduce((closest, current, index) => {
+                            const currentDiff = Math.abs(current - this.value);
+                            const closestDiff = Math.abs(timestamps[closest] - this.value);
+                            return currentDiff < closestDiff ? index : closest;
+                        }, 0);
+
+                        return originalTimes[closestIndex] || '';
+                    },
+                    // overflow: 'allow',
+                    step: 1,
+                    // چرخش برای periodType >= 3
+                    rotation: periodType >= 3 ? -45 : 0,
+                    style: {
+                        fontSize: '10px'
                     }
                 }
             },
@@ -222,16 +333,28 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
                 title: { text: 'قیمت گرم به دینار کویت' },
                 tickInterval: tickInterval,
                 min: minY,
-                startOnTick: false,
+                max: maxY,
+                startOnTick: true,
+                endOnTick: true,
                 labels: {
                     formatter: function () {
-                        return this.value.toFixed(3);
+                        // تعیین دقت نمایش بر اساس مقدار tickInterval
+                        let decimals = 3;
+                        if (tickInterval >= 1) decimals = 0;
+                        else if (tickInterval >= 0.1) decimals = 1;
+                        else if (tickInterval >= 0.01) decimals = 2;
+                        else decimals = 3;
+
+                        return this.value.toFixed(decimals);
                     }
                 }
             },
             tooltip: {
                 xDateFormat: '%H:%M:%S',
-                shared: true
+                shared: true,
+                pointFormatter: function () {
+                    return `<b>${this.y.toFixed(4)}</b>`;
+                }
             },
             plotOptions: {
                 area: {
@@ -256,7 +379,14 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
             series: [{
                 name: '',
                 data: seriesData,
-                color: '#f1c61a'
+                color: '#f1c61a',
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, 'var(--color-topColor)'],
+                        [1, 'var(--color-bottomColor)']
+                    ]
+                }
             }]
         });
 
@@ -302,13 +432,6 @@ window.addEventListener('DOMContentLoaded', () => {
     startCountdownFromBase(); // تایمر معکوس
     scheduleNextFetch(); // برنامه‌ریزی دقیق برای fetch بعدی
 });
-
-
-
-
-
-
-
 
 // fetchChartData(currentMetal, currentPeriod);
 

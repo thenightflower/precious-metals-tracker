@@ -2,22 +2,6 @@
 /* yekanbakh 500 mikhim bra hrja font-medium hst */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* @font-face {
-    font-family: yekanbakh;
-    font-style: normal;
-    font-weight: 100;
-    font-display: swap;
-    src: url('../assets/fonts/YekanBakh/YekanBakh-Thin.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: yekanbakh;
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url('../assets/fonts/YekanBakh/YekanBakh-Light.ttf') format('truetype');
-} */
-
 @font-face {
     font-family: yekanbakh;
     font-style: normal;
@@ -67,13 +51,6 @@
     src: url('../assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf') format('truetype');
 }
 
-
-
-
-
-
-
-
 @theme {
     --color-gold: #9b8600;
     --color-background: #f0f0f0;
@@ -107,13 +84,22 @@
 
     --tw-ease: ease;
     --tw-duration: .2s;
+
+
+    /* highchart series gradient */
+    --color-topColor: #f3e5bc;
+    --color-bottomColor: rgba(243, 229, 188, 0);
 }
 
 @layer theme {
     .dark {
         --color-forground: #ffffff;
         --color-background: #151514;
-        --color-gold: var(--color-yriel-yellow)
+        --color-gold: var(--color-yriel-yellow);
+
+
+        --color-topColor: #6a5c2f;
+        --color-bottomColor: #6a5c2f03;
     }
 }
 
@@ -296,9 +282,7 @@ textarea.error {
 }
 
 .slick-slide {
-    position: relative;
-    opacity: 60%;
-    margin: 16px;
+    @apply relative opacity-60 ml:m-4 max-ml:mx-2;
 }
 
 .slick-slide .text {
@@ -337,6 +321,14 @@ textarea.error {
 .slick-prev:hover {
     opacity: 0.9;
 }
+[dir='ltr'] .slick-prev,
+[dir='rtl'] .slick-next {
+    @apply right-auto max-ml:left-[13px] ml:left-[-25px];
+}
+[dir='ltr'] .slick-next,
+[dir='rtl'] .slick-prev {
+    @apply max-ml:right-[13px] ml:right-[-25px] left-auto;
+}
 
 /* highchart */
 .highcharts-legend,
@@ -364,6 +356,10 @@ textarea.error {
     display: none;
 }
 
+
+.highcharts-axis-labels text {
+    @apply !fill-forground dark:fill-white !text-[10px];
+}
 
 /*  chart btns*/
 .activeMetal {
@@ -395,11 +391,28 @@ textarea.error {
 
 
 
-
+/* mobile dark mode */
 .switch-button .checkbox:checked+.checkbox-label {
     background-color: var(--color-gold);
 }
 
 .switch-button .checkbox:checked+.checkbox-label .ball {
     transform: translate(12px);
+}
+
+
+
+
+
+/* metalGroup */
+.metalGroup:first-child {
+    @apply max-xl:flex max-xl:flex-wrap max-xl:gap-x-5 max-xl:w-full;
+}
+
+.metalGroup:first-child>span:not(:first-child) {
+    @apply max-xl:w-[calc(50%-10px)];
+}
+
+.metalGroup:not(:first-child) {
+    @apply max-xl:inline-flex max-xl:flex-col max-xl:w-[calc(50%-10px)];
 }
