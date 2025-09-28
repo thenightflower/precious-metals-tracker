@@ -150,7 +150,6 @@ const fetchPrices = async () => {
         }
 
         const data = await response.json();
-        console.log(data);
 
         if (data.isSuccess && data.result) {
 
@@ -163,7 +162,6 @@ const fetchPrices = async () => {
             updateTime();
             showUpdateInfo();
             hideLoading();
-            console.log("✅ API response received at:", now.toLocaleTimeString('en-US'), data.result);
         }
         else {
             console.error("ساختار داده نامعتبر است:", data);
@@ -173,57 +171,386 @@ const fetchPrices = async () => {
     }
 };
 
-const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
+// const originalTimes = data.rangeOfXaxis.map(timeStr => {
+//     const date = new Date(timeStr);
+
+//     // بر اساس periodType فرمت متفاوت
+//     if (periodType >= 0 && periodType <= 2) {
+//         // فقط ساعت و دقیقه
+//         return date.toLocaleString('en-US', {
+//             hour: '2-digit',
+//             minute: '2-digit',
+//             hour12: true
+//         });
+//     } else if (periodType >= 3 && periodType <= 5) {
+//         // روز مخفف + ساعت
+//         return date.toLocaleString('en-US', {
+//             weekday: 'short',
+//             hour: 'numeric',
+//             minute: '2-digit',
+//             hour12: true
+//         });
+//     } else {
+//         // تاریخ مخفف برای periodType >= 6
+//         return date.toLocaleString('en-US', {
+//             day: '2-digit',
+//             month: 'short',
+//             year: '2-digit'
+//         });
+//     }
+// });
+
+//         const originalTimes = data.rangeOfXaxis.map(timeStr => {
+//             // ساخت تاریخ از رشته UTC
+//             const date = new Date(timeStr);
+// console.log(date);
+
+//             // بر اساس timezone کاربر نشون بده
+//             if (periodType >= 0 && periodType <= 2) {
+//                 return date.toLocaleString([], {
+//                     hour: '2-digit',
+//                     minute: '2-digit',
+//                     hour12: true
+//                 });
+//             } else if (periodType >= 3 && periodType <= 5) {
+//                 return date.toLocaleString([], {
+//                     weekday: 'short',
+//                     hour: 'numeric',
+//                     minute: '2-digit',
+//                     hour12: true
+//                 });
+//             } else {
+//                 return date.toLocaleString([], {
+//                     day: '2-digit',
+//                     month: 'short',
+//                     year: '2-digit'
+//                 });
+//             }
+//         });
+// const originalTimes = data.rangeOfXaxis.map(timeStr => {
+//     // رشته مثل "9/28/2025 10:10:44 AM"
+//     const [datePart, timePart, ampm] = timeStr.split(" ");
+//     const [month, day, year] = datePart.split("/");
+//     const [hourRaw, minute, second] = timePart.split(":");
+
+//     let hour = parseInt(hourRaw, 10);
+//     if (ampm === "PM" && hour < 12) hour += 12;
+//     if (ampm === "AM" && hour === 12) hour = 0;
+
+//     // ساخت تاریخ بر اساس کویت (GMT+3)
+//     const utcDate = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
+
+//     // حالا مرورگر خودش به timezone کاربر (مثلا ایران GMT+3:30) تبدیل می‌کنه
+//     if (periodType >= 0 && periodType <= 2) {
+//         return utcDate.toLocaleString([], {
+//             hour: '2-digit',
+//             minute: '2-digit',
+//             hour12: true
+//         });
+//     } else if (periodType >= 3 && periodType <= 5) {
+//         return utcDate.toLocaleString([], {
+//             weekday: 'short',
+//             hour: 'numeric',
+//             minute: '2-digit',
+//             hour12: true
+//         });
+//     } else {
+//         return utcDate.toLocaleString([], {
+//             day: '2-digit',
+//             month: 'short',
+//             year: '2-digit'
+//         });
+//     }
+// });
 
 
+
+// const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
+//     try {
+//         const response = await fetch(`https://api.daralsabaek.com/api/Chart/GetMetalPricesChartData?metalSymbol=${metalSymbol}&periodType=${periodType}`);
+//         if (!response.ok) throw new Error(`خطا در دریافت داده‌ها: ${response.status}`);
+
+//         const data = await response.json();
+
+//         const parseApiDate = (timeStr) => {
+//             // اگر API رشته ISO (T یا Z) فرستاده، مستقیم بساز
+//             if (timeStr.includes('T') || timeStr.endsWith('Z')) return new Date(timeStr);
+
+//             // فرمت مثل "9/28/2025 10:10:44 AM"
+//             const [datePart, timePart, ampm] = timeStr.split(" ");
+//             const [month, day, year] = datePart.split("/").map(s => s.trim());
+//             const [hourRaw, minute, second] = timePart.split(":").map(s => s.trim());
+
+//             let hour = parseInt(hourRaw, 10);
+//             if (ampm === "PM" && hour < 12) hour += 12;
+//             if (ampm === "AM" && hour === 12) hour = 0;
+
+//             // ساخت Date بر اساس UTC (چون داده‌ها UTC هستند)
+//             return new Date(Date.UTC(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10),
+//                 hour, parseInt(minute, 10), parseInt(second, 10)));
+//         };
+
+//         const parsedDates = data.rangeOfXaxis.map(parseApiDate);
+
+//         // const originalTimes = parsedDates.map(date => {
+//         //     if (periodType >= 0 && periodType <= 2) {
+//         //         return date.toLocaleString([], {
+//         //             hour: '2-digit',
+//         //             minute: '2-digit',
+//         //             hour12: true
+//         //         });
+//         //     } else if (periodType >= 3 && periodType <= 5) {
+//         //         return date.toLocaleString([], {
+//         //             weekday: 'short',
+//         //             hour: 'numeric',
+//         //             minute: '2-digit',
+//         //             hour12: true
+//         //         });
+//         //     } else {
+//         //         return date.toLocaleString([], {
+//         //             day: '2-digit',
+//         //             month: 'short',
+//         //             year: '2-digit'
+//         //         });
+//         //     }
+//         // });
+
+//         // const xData = data.rangeOfXaxis.map(x => new Date(x).getTime());
+//         const xData = parsedDates.map(d => d.getTime());
+
+//         const yData = data.rangeOfYaxis;
+
+//         const rawMinY = Math.min(...yData);
+//         const rawMaxY = Math.max(...yData);
+//         const difference = rawMaxY - rawMinY;
+
+//         // محاسبه tickInterval بر اساس اختلاف داده‌ها
+//         let tickInterval;
+//         if (difference >= 10) {
+//             tickInterval = Math.ceil(difference / 4); // حداکثر 4 تیک
+//         } else if (difference >= 5) {
+//             tickInterval = difference / 3; // حداکثر 3 تیک
+//         } else if (difference >= 1) {
+//             tickInterval = difference / 4; // حداکثر 4 تیک
+//         } else if (difference >= 0.1) {
+//             tickInterval = difference / 3; // حداکثر 3 تیک
+//         } else if (difference >= 0.01) {
+//             tickInterval = difference / 4; // حداکثر 4 تیک
+//         } else {
+//             // برای اختلافات خیلی کم
+//             tickInterval = difference / 3 || 0.001;
+//         }
+
+//         // رند کردن tickInterval به عدد مناسب
+//         if (tickInterval >= 1) {
+//             tickInterval = Math.ceil(tickInterval);
+//         } else if (tickInterval >= 0.1) {
+//             tickInterval = Math.ceil(tickInterval * 10) / 10;
+//         } else if (tickInterval >= 0.01) {
+//             tickInterval = Math.ceil(tickInterval * 100) / 100;
+//         } else {
+//             tickInterval = Math.ceil(tickInterval * 1000) / 1000;
+//         }
+
+//         const minY = Math.floor(rawMinY / tickInterval) * tickInterval;
+//         const maxY = Math.ceil(rawMaxY / tickInterval) * tickInterval;
+
+//         const seriesData = xData.map((x, i) => [x, yData[i]]);
+
+//         Highcharts.chart('container', {
+//             chart: {
+//                 type: 'area',
+//                 backgroundColor: 'var(--color-background)',
+//                 spacingRight: 30,
+//                 marginRight: 30,
+//             },
+//             title: {
+//                 text: 'نمودار قیمت فلزات',
+//                 align: 'center'
+//             },
+//             xAxis: {
+//                 title: { text: 'بازه زمانی' },
+//                 type: 'datetime',
+//                 tickLength: 0,
+//                 // tickPositions: xData,
+//                 min: Math.min(...xData),
+//                 max: Math.max(...xData),
+//                 startOnTick: false,
+//                 endOnTick: false,
+//                 // tickPixelInterval: 100,
+//                 labels: {
+//                     formatter: function () {
+//                         // const timestamps = data.rangeOfXaxis.map(x => new Date(x).getTime());
+//                         const timestamps = parsedDates.map(d => d.getTime());
+//                         const closestIndex = timestamps.reduce((closest, current, index) => {
+//                             const currentDiff = Math.abs(current - this.value);
+//                             const closestDiff = Math.abs(timestamps[closest] - this.value);
+//                             return currentDiff < closestDiff ? index : closest;
+//                         }, 0);
+
+//                         const localDate = parsedDates[closestIndex];
+//                         if (periodType >= 0 && periodType <= 2) {
+//                             return localDate.toLocaleString([], {
+//                                 hour: '2-digit',
+//                                 minute: '2-digit',
+//                                 hour12: true
+//                             });
+//                         } else if (periodType >= 3 && periodType <= 5) {
+//                             return localDate.toLocaleString([], {
+//                                 weekday: 'short',
+//                                 hour: 'numeric',
+//                                 minute: '2-digit',
+//                                 hour12: true
+//                             });
+//                         } else {
+//                             return localDate.toLocaleString([], {
+//                                 day: '2-digit',
+//                                 month: 'short',
+//                                 year: '2-digit'
+//                             });
+//                         }
+//                     },
+//                     // overflow: 'allow',
+//                     step: 1,
+//                     // چرخش برای periodType >= 3
+//                     rotation: periodType >= 3 ? -45 : 0,
+//                     style: {
+//                         fontSize: '10px'
+//                     }
+//                 }
+//             },
+//             yAxis: {
+//                 title: { text: 'قیمت گرم به دینار کویت' },
+//                 tickInterval: tickInterval,
+//                 min: minY,
+//                 max: maxY,
+//                 startOnTick: true,
+//                 endOnTick: true,
+//                 labels: {
+//                     formatter: function () {
+//                         // تعیین دقت نمایش بر اساس مقدار tickInterval
+//                         let decimals = 3;
+//                         if (tickInterval >= 1) decimals = 0;
+//                         else if (tickInterval >= 0.1) decimals = 1;
+//                         else if (tickInterval >= 0.01) decimals = 2;
+//                         else decimals = 3;
+
+//                         return this.value.toFixed(decimals);
+//                     }
+//                 }
+//             },
+//             tooltip: {
+//                 shared: true,
+//                 formatter: function () {
+//                     const date = new Date(this.x);
+//                     let formatted;
+//                     if (periodType >= 0 && periodType <= 2) {
+//                         formatted = date.toLocaleString([], {
+//                             hour: '2-digit',
+//                             minute: '2-digit',
+//                             second: '2-digit',
+//                             hour12: true
+//                         });
+//                     } else if (periodType >= 3 && periodType <= 5) {
+//                         formatted = date.toLocaleString([], {
+//                             weekday: 'short',
+//                             hour: 'numeric',
+//                             minute: '2-digit',
+//                             hour12: true
+//                         });
+//                     } else {
+//                         formatted = date.toLocaleString([], {
+//                             day: '2-digit',
+//                             month: 'short',
+//                             year: '2-digit'
+//                         });
+//                     }
+
+//                     return `<b>${formatted}</b><br/>${this.y.toFixed(4)}`;
+//                 }
+//             }
+//             ,
+//             plotOptions: {
+//                 area: {
+//                     lineWidth: 1,
+//                     marker: {
+//                         enabled: true,
+//                         radius: 2,
+//                         lineWidth: 0.5,
+//                         lineColor: '#ffc700',
+//                         fillColor: '#ffc700',
+//                         states: {
+//                             hover: {
+//                                 enabled: true,
+//                                 lineColor: '#ffffff',
+//                                 lineWidth: 2
+//                             }
+//                         }
+//                     },
+//                     fillOpacity: 0.4
+//                 }
+//             },
+//             series: [{
+//                 name: '',
+//                 data: seriesData,
+//                 color: '#f1c61a',
+//                 fillColor: {
+//                     linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                     stops: [
+//                         [0, 'var(--color-topColor)'],
+//                         [1, 'var(--color-bottomColor)']
+//                     ]
+//                 }
+//             }]
+//         });
+
+//     }
+//     catch (error) {
+//         console.error("خطا در گرفتن داده‌ها:", error);
+//     }
+// };
+
+
+const fetchChartData = async (metalSymbol = 1, periodType = 0, userTimezone = null) => {
     try {
         const response = await fetch(`https://api.daralsabaek.com/api/Chart/GetMetalPricesChartData?metalSymbol=${metalSymbol}&periodType=${periodType}`);
         if (!response.ok) throw new Error(`خطا در دریافت داده‌ها: ${response.status}`);
 
         const data = await response.json();
-        console.log(data);
 
+        // تشخیص timezone کاربر اگر مشخص نشده
+        const targetTimezone = userTimezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        // const originalTimes = data.rangeOfXaxis.map(timeStr => {
-        //     const date = new Date(timeStr);
-        //     // به timezone محلی کاربر تبدیل می‌شه
-        //     return date.toLocaleString('en-US', {
-        //         month: '2-digit',
-        //         day: '2-digit',
-        //         hour: '2-digit',
-        //         minute: '2-digit',
-        //         second: '2-digit'
-        //     });
-        // });
-        const originalTimes = data.rangeOfXaxis.map(timeStr => {
-            const date = new Date(timeStr);
-
-            // بر اساس periodType فرمت متفاوت
-            if (periodType >= 0 && periodType <= 2) {
-                // فقط ساعت و دقیقه
-                return date.toLocaleString('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true
-                });
-            } else if (periodType >= 3 && periodType <= 5) {
-                // روز مخفف + ساعت
-                return date.toLocaleString('en-US', {
-                    weekday: 'short',
-                    hour: 'numeric',
-                    minute: '2-digit',
-                    hour12: true
-                });
-            } else {
-                // تاریخ مخفف برای periodType >= 6
-                return date.toLocaleString('en-US', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: '2-digit'
-                });
+        const parseApiDate = (timeStr) => {
+            // اگر API رشته ISO (T یا Z) فرستاده، مستقیم بساز
+            if (timeStr.includes('T') || timeStr.endsWith('Z')) {
+                return new Date(timeStr);
             }
-        });
-        const xData = data.rangeOfXaxis.map(x => new Date(x).getTime());
+
+            // فرمت مثل "9/28/2025 10:10:44 AM"
+            const [datePart, timePart, ampm] = timeStr.split(" ");
+            const [month, day, year] = datePart.split("/").map(s => s.trim());
+            const [hourRaw, minute, second] = timePart.split(":").map(s => s.trim());
+
+            let hour = parseInt(hourRaw, 10);
+            if (ampm === "PM" && hour < 12) hour += 12;
+            if (ampm === "AM" && hour === 12) hour = 0;
+
+            // ساخت Date بر اساس UTC (چون داده‌ها UTC هستند)
+            return new Date(Date.UTC(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10),
+                hour, parseInt(minute, 10), parseInt(second, 10)));
+        };
+
+        // تابع برای فرمت کردن تاریخ بر اساس timezone هدف
+        const formatDateForTimezone = (utcDate, options) => {
+            return utcDate.toLocaleString('en-US', {
+                ...options,
+                timeZone: targetTimezone
+            });
+        };
+
+        const parsedDates = data.rangeOfXaxis.map(parseApiDate);
+        const xData = parsedDates.map(d => d.getTime());
         const yData = data.rangeOfYaxis;
 
         const rawMinY = Math.min(...yData);
@@ -233,21 +560,20 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
         // محاسبه tickInterval بر اساس اختلاف داده‌ها
         let tickInterval;
         if (difference >= 10) {
-            tickInterval = Math.ceil(difference / 4); // حداکثر 4 تیک
+            tickInterval = Math.ceil(difference / 4);
         } else if (difference >= 5) {
-            tickInterval = difference / 3; // حداکثر 3 تیک
+            tickInterval = difference / 3;
         } else if (difference >= 1) {
-            tickInterval = difference / 4; // حداکثر 4 تیک
+            tickInterval = difference / 4;
         } else if (difference >= 0.1) {
-            tickInterval = difference / 3; // حداکثر 3 تیک
+            tickInterval = difference / 3;
         } else if (difference >= 0.01) {
-            tickInterval = difference / 4; // حداکثر 4 تیک
+            tickInterval = difference / 4;
         } else {
-            // برای اختلافات خیلی کم
             tickInterval = difference / 3 || 0.001;
         }
 
-        // رند کردن tickInterval به عدد مناسب
+        // رند کردن tickInterval
         if (tickInterval >= 1) {
             tickInterval = Math.ceil(tickInterval);
         } else if (tickInterval >= 0.1) {
@@ -260,7 +586,6 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
 
         const minY = Math.floor(rawMinY / tickInterval) * tickInterval;
         const maxY = Math.ceil(rawMaxY / tickInterval) * tickInterval;
-
         const seriesData = xData.map((x, i) => [x, yData[i]]);
 
         Highcharts.chart('container', {
@@ -271,58 +596,50 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
                 marginRight: 30,
             },
             title: {
-                text: 'نمودار قیمت فلزات',
+                text: `نمودار قیمت فلزات`,
                 align: 'center'
             },
-            // xAxis: {
-            //     title: { text: 'بازه زمانی' },
-            //     type: 'datetime',
-            //     tickLength: 0,
-            //     min: Math.min(...xData),
-            //     max: Math.max(...xData),
-            //     startOnTick: false,
-            //     endOnTick: false,
-            //     tickPixelInterval: 100,
-            //     labels: {
-            //         formatter: function () {
-            //             // به جای findIndex از map استفاده می‌کنیم
-            //             const timestamps = data.rangeOfXaxis.map(x => new Date(x).getTime());
-            //             const closestIndex = timestamps.reduce((closest, current, index) => {
-            //                 const currentDiff = Math.abs(current - this.value);
-            //                 const closestDiff = Math.abs(timestamps[closest] - this.value);
-            //                 return currentDiff < closestDiff ? index : closest;
-            //             }, 0);
-
-            //             return originalTimes[closestIndex] || '';
-            //         },
-            //         overflow: 'allow',
-            //         step: 1 // اطمینان از نمایش همه لیبل‌ها
-            //     }
-            // },
             xAxis: {
                 title: { text: 'بازه زمانی' },
                 type: 'datetime',
                 tickLength: 0,
-                // tickPositions: xData,
                 min: Math.min(...xData),
                 max: Math.max(...xData),
                 startOnTick: false,
                 endOnTick: false,
-                // tickPixelInterval: 100,
                 labels: {
                     formatter: function () {
-                        const timestamps = data.rangeOfXaxis.map(x => new Date(x).getTime());
+                        const timestamps = parsedDates.map(d => d.getTime());
                         const closestIndex = timestamps.reduce((closest, current, index) => {
                             const currentDiff = Math.abs(current - this.value);
                             const closestDiff = Math.abs(timestamps[closest] - this.value);
                             return currentDiff < closestDiff ? index : closest;
                         }, 0);
 
-                        return originalTimes[closestIndex] || '';
+                        const utcDate = parsedDates[closestIndex];
+                        
+                        if (periodType >= 0 && periodType <= 2) {
+                            return formatDateForTimezone(utcDate, {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: true
+                            });
+                        } else if (periodType >= 3 && periodType <= 5) {
+                            return formatDateForTimezone(utcDate, {
+                                weekday: 'short',
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                hour12: true
+                            });
+                        } else {
+                            return formatDateForTimezone(utcDate, {
+                                day: '2-digit',
+                                month: 'short',
+                                year: '2-digit'
+                            });
+                        }
                     },
-                    // overflow: 'allow',
                     step: 1,
-                    // چرخش برای periodType >= 3
                     rotation: periodType >= 3 ? -45 : 0,
                     style: {
                         fontSize: '10px'
@@ -338,7 +655,6 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
                 endOnTick: true,
                 labels: {
                     formatter: function () {
-                        // تعیین دقت نمایش بر اساس مقدار tickInterval
                         let decimals = 3;
                         if (tickInterval >= 1) decimals = 0;
                         else if (tickInterval >= 0.1) decimals = 1;
@@ -350,10 +666,34 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
                 }
             },
             tooltip: {
-                xDateFormat: '%H:%M:%S',
                 shared: true,
-                pointFormatter: function () {
-                    return `<b>${this.y.toFixed(4)}</b>`;
+                formatter: function () {
+                    const utcDate = new Date(this.x);
+                    let formatted;
+                    
+                    if (periodType >= 0 && periodType <= 2) {
+                        formatted = formatDateForTimezone(utcDate, {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit',
+                            hour12: true
+                        });
+                    } else if (periodType >= 3 && periodType <= 5) {
+                        formatted = formatDateForTimezone(utcDate, {
+                            weekday: 'short',
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                        });
+                    } else {
+                        formatted = formatDateForTimezone(utcDate, {
+                            day: '2-digit',
+                            month: 'short',
+                            year: '2-digit'
+                        });
+                    }
+
+                    return `<b>${formatted}</b><br/>${this.y.toFixed(4)}<br/><small>Timezone: ${targetTimezone}</small>`;
                 }
             },
             plotOptions: {
@@ -390,11 +730,34 @@ const fetchChartData = async (metalSymbol = 1, periodType = 0) => {
             }]
         });
 
-    }
-    catch (error) {
+        // اطلاعات debugging برای بررسی
+        console.log('Timezone info:', {
+            userTimezone: targetTimezone,
+            sampleUTCDate: parsedDates[0]?.toISOString(),
+            sampleLocalDate: parsedDates[0] ? formatDateForTimezone(parsedDates[0], {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            }) : 'No data'
+        });
+
+    } catch (error) {
         console.error("خطا در گرفتن داده‌ها:", error);
     }
 };
+
+// استفاده:
+// fetchChartData(1, 0); // استفاده از timezone سیستم
+// fetchChartData(1, 0, 'Asia/Tehran'); // استفاده از timezone خاص
+// fetchChartData(1, 0, 'Asia/Kuwait'); // برای کویت
+
+
+
+
 
 fetchPrices();
 // fetchChartData(currentMetal, currentPeriod);
