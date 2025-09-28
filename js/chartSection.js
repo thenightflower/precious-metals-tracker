@@ -99,7 +99,7 @@ const displayPrices = (data) => {
     ${group.items.map(item => {
             const prefix = group.group === "قیمت طلا" ? "طلا " : "";
             return `
-      <span class="flex items-start p-2.25 w-full flex-col bg-white dark:bg-karaka mb-2.5  border-[#81818143] rounded-md border-e">
+      <span class="flex items-start p-2.25 w-full flex-col bg-white dark:bg-karaka mb-2.5 max-ml:w-1/2 border-[#81818143] rounded-md border-e">
         ${prefix ? `<span class="text-xs flex items-center justify-start gap-1"><span class="text-gold">${prefix}</span>${item.title}</span>`
                     : `<span class="text-xs">${item.title}</span>`}
         <span class="flex items-center gap-1.75 font-semibold">

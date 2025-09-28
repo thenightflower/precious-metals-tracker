@@ -437,9 +437,6 @@
   .mb-14 {
     margin-bottom: calc(var(--spacing) * 14);
   }
-  .mb-14\.5 {
-    margin-bottom: calc(var(--spacing) * 14.5);
-  }
   .mb-15 {
     margin-bottom: calc(var(--spacing) * 15);
   }
@@ -448,6 +445,9 @@
   }
   .mb-20 {
     margin-bottom: calc(var(--spacing) * 20);
+  }
+  .mb-21\.5 {
+    margin-bottom: calc(var(--spacing) * 21.5);
   }
   .mb-27 {
     margin-bottom: calc(var(--spacing) * 27);
@@ -524,9 +524,6 @@
   }
   .max-h-110 {
     max-height: calc(var(--spacing) * 110);
-  }
-  .\!w-\[calc\(100\%\/3-52px\/2\)\] {
-    width: calc(100% / 3 - 52px / 2) !important;
   }
   .\!w-\[calc\(100\%\/3-52px\/3\)\] {
     width: calc(100% / 3 - 52px / 3) !important;
@@ -857,9 +854,6 @@
   .fill-gold {
     fill: var(--color-gold);
   }
-  .fill-yellow {
-    fill: var(--color-yellow);
-  }
   .object-cover {
     object-fit: cover;
   }
@@ -1112,9 +1106,6 @@
   }
   .opacity-0 {
     opacity: 0%;
-  }
-  .opacity-30 {
-    opacity: 30%;
   }
   .opacity-60 {
     opacity: 60%;
@@ -1405,15 +1396,14 @@
       display: none;
     }
   }
-  .max-ml\:size-full {
-    @media (width < 62rem) {
-      width: 100%;
-      height: 100%;
-    }
-  }
   .max-ml\:h-full {
     @media (width < 62rem) {
       height: 100%;
+    }
+  }
+  .max-ml\:w-1\/2 {
+    @media (width < 62rem) {
+      width: calc(1/2 * 100%);
     }
   }
   .max-ml\:w-17\.5 {
@@ -1594,6 +1584,11 @@
   .max-md\:gap-4 {
     @media (width < 48rem) {
       gap: calc(var(--spacing) * 4);
+    }
+  }
+  .max-md\:gap-y-4 {
+    @media (width < 48rem) {
+      row-gap: calc(var(--spacing) * 4);
     }
   }
   .max-md\:px-1\.5 {
@@ -2210,11 +2205,6 @@
       color: #f5f5f5;
     }
   }
-  .dark\:text-background {
-    &:where(.dark, .dark *) {
-      color: var(--color-background);
-    }
-  }
   .dark\:text-maire {
     &:where(.dark, .dark *) {
       color: var(--color-maire);
@@ -2223,11 +2213,6 @@
   .dark\:text-philippine-silver {
     &:where(.dark, .dark *) {
       color: var(--color-philippine-silver);
-    }
-  }
-  .dark\:text-white {
-    &:where(.dark, .dark *) {
-      color: var(--color-white);
     }
   }
   .dark\:text-yriel-yellow {
@@ -2555,6 +2540,46 @@ input.error, textarea.error {
   @media (width < 80rem) {
     flex-direction: column;
   }
+}
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+.slick-dots {
+  position: absolute;
+  display: inline-block;
+  height: 19px;
+  border-radius: 10px;
+  background-color: #151514;
+  padding-inline: calc(var(--spacing) * 1.25);
+  text-align: center;
+  @media (width < 64rem) {
+    bottom: calc(var(--spacing) * -8);
+  }
+  @media (width >= 64rem) {
+    bottom: -25px;
+  }
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  margin: 0 4px;
+  cursor: pointer;
+  top: -50%;
+  transform: translateY(50%);
+}
+.slick-dots li button {
+  font-size: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.slick-dots li.slick-active button {
+  opacity: 1;
+  width: 16px;
 }
 @property --tw-border-spacing-x {
   syntax: "<length>";

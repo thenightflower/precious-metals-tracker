@@ -321,10 +321,12 @@ textarea.error {
 .slick-prev:hover {
     opacity: 0.9;
 }
+
 [dir='ltr'] .slick-prev,
 [dir='rtl'] .slick-next {
     @apply right-auto max-ml:left-[13px] ml:left-[-25px];
 }
+
 [dir='ltr'] .slick-next,
 [dir='rtl'] .slick-prev {
     @apply max-ml:right-[13px] ml:right-[-25px] left-auto;
@@ -415,4 +417,41 @@ textarea.error {
 
 .metalGroup:not(:first-child) {
     @apply max-xl:inline-flex max-xl:flex-col max-xl:w-[calc(50%-10px)];
+}
+
+
+
+
+/* Dots */
+.slick-dotted.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    @apply inline-block lg:bottom-[-25px] max-lg:-bottom-8 absolute bg-[#151514] px-1.25 rounded-[10px] h-[19px] text-center;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+    top: -50%;
+    transform: translateY(50%);
+}
+
+.slick-dots li button {
+    font-size: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.slick-dots li.slick-active button {
+    opacity: 1;
+    width: 16px;
 }
