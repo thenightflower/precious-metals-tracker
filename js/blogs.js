@@ -4,308 +4,308 @@ const blogs = [
         title: "به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰ دلار باقی ماند",
         image: "../assets/images/b.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+        link: "/pages/blog-details.html"
     },
     {
         id: 2,
         title: "حمله‌ی سایبری عملیات فرودگاه‌های اروپایی را مختل کرد",
         image: "../assets/images/b3.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 3,
         title: "معاملات آتی طلا برای تحویل در ماه دسامبر با 0.74 درصد افزایش به 3705.80 دلار در هر اونس رسید و افزایش هفتگی را ثبت کرد.",
         image: "../assets/images/b2.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 4,
         title: "با افزایش کسری بودجه بریتانیا، ارزش پوند کاهش یافت.",
         image: "../assets/images/b4.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 5,
         title: "بانک مرکزی ژاپن نرخ بهره را بدون تغییر حفظ کرد",
         image: "../assets/images/b7.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 6,
         title: "میانگین نرخ بهره وام مسکن ثابت 30 ساله در ایالات متحده در هفته منتهی به 11 سپتامبر کاهش یافت.",
         image: "../assets/images/b8.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 7,
         title: "دلار در حال افزایش قدرت است.",
         image: "../assets/images/b5.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 8,
         title: "طلا پس از تصمیم فدرال رزرو، ضررهای خود را کاهش داد و زیر بالاترین رکورد خود تثبیت شد",
         image: "../assets/images/b6.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 9,
         title: "کاهش قیمت طلا پس از هشدار پاول در مورد افزایش تورم در آمریکا",
         image: "../assets/images/b9.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 10,
         title: "فدرال رزرو انتظار دارد دو کاهش نرخ بهره دیگر در سال 2025 انجام دهد.",
         image: "../assets/images/b10.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 11,
         title: "کویت پس از تصمیم فدرال dvهش داد",
         image: "../assets/images/b11.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 1,
         title: "به لطف انتظارات فدرال رزرو و تقوhrshباقی ماند",
         image: "../assets/images/b.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 2,
         title: "حمله‌ی سایبری عمrdthوپایی را مختل کرد",
         image: "../assets/images/b3.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 3,
         title: "معاملات آتی طلا برای تحویل در ماه دسامبر با 0.74 درصد افزایش به 3705.80 دلار در هر اونس رسید و افزایش هفتگی را ثبت کرد.",
         image: "../assets/images/b2.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 4,
         title: "با افزایش کسری بودجه بریتانیا، ارزش پوند کاهش یافت.",
         image: "../assets/images/b4.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 5,
         title: "بانک مرکزی ژاپن نرخ بهره را بدون تغییر حفظ کرد",
         image: "../assets/images/b7.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 6,
         title: "میانگین نرخ بهره وام مسکن ثابت 30 ساله در ایالات متحده در هفته منتهی به 11 سپتامبر کاهش یافت.",
         image: "../assets/images/b8.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 7,
         title: "دلار در حال افزایش قدرت است.",
         image: "../assets/images/b5.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 8,
         title: "طلا پس از تصمیم فدرال رزرو، ضررهای خود را کاهش داد و زیر بالاترین رکورد خود تثبیت شد",
         image: "../assets/images/b6.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 9,
         title: "کاهش قیمت طلا پس از هشدار پاول در مورد افزایش تورم در آمریکا",
         image: "../assets/images/b9.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 10,
         title: "فدرال رزرو انتظار دارد دو کاهش نرخ بهره دیگر در سال 2025 انجام دهد.",
         image: "../assets/images/b10.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 11,
         title: "کویت پس از تصمیم فدرال رزرو، نرخ بهره را 25 واحد پایه کاهش داد",
         image: "../assets/images/b11.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 1,
         title: "به لطف انتظارات فدرال رزرو و تقویت دلار آمریکا، قیمت طلا بالای ۳۶۵۰ دلار باقی ماند",
         image: "../assets/images/b.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 2,
         title: "حمله‌ی سایبری عملیات فرودگاه‌های اروپایی را مختل کرد",
         image: "../assets/images/b3.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 3,
         title: "معاملات آتی طلا برای تحویل در ماه دسامبر با 0.74 درصد افزایش به 3705.80 دلار در هر اونس رسید و افزایش هفتگی را ثبت کرد.",
         image: "../assets/images/b2.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 4,
         title: "با افزایش کسری بودجه بریتانیا، ارزش پوند کاهش یافت.",
         image: "../assets/images/b4.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 5,
         title: "بانک مرکزی ژاپن نرخ بهره را بدون تغییر حفظ کرد",
         image: "../assets/images/b7.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 6,
         title: "میانگین نرخ بهره وام مسکن ثابت 30 ساله در ایالات متحده در هفته منتهی به 11 سپتامبر کاهش یافت.",
         image: "../assets/images/b8.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 7,
         title: "دلار در حال افزایش قدرت است.",
         image: "../assets/images/b5.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 8,
         title: "طلا پس از تصمیم فدرال رزرو، ضررهای خود را کاهش داد و زیر بالاترین رکورد خود تثبیت شد",
         image: "../assets/images/b6.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 9,
         title: "کاهش قیمت طلا پس از هشدار پاول در مورد افزایش تورم در آمریکا",
         image: "../assets/images/b9.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 10,
         title: "فدرال رزرو انتظار دارد دو کاهش نرخ بهره دیگر در سال 2025 انجام دهد.",
         image: "../assets/images/b10.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 11,
         title: "کویت پس از تصمیم فدرال dvهش داد",
         image: "../assets/images/b11.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 1,
         title: "به لطف انتظارات فدرال رزرو و تقوhrshباقی ماند",
         image: "../assets/images/b.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 2,
         title: "حمله‌ی سایبری عمrdthوپایی را مختل کرد",
         image: "../assets/images/b3.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 3,
         title: "معاملات آتی طلا برای تحویل در ماه دسامبر با 0.74 درصد افزایش به 3705.80 دلار در هر اونس رسید و افزایش هفتگی را ثبت کرد.",
         image: "../assets/images/b2.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 4,
         title: "با افزایش کسری بودجه بریتانیا، ارزش پوند کاهش یافت.",
         image: "../assets/images/b4.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 5,
         title: "بانک مرکزی ژاپن نرخ بهره را بدون تغییر حفظ کرد",
         image: "../assets/images/b7.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 6,
         title: "میانگین نرخ بهره وام مسکن ثابت 30 ساله در ایالات متحده در هفته منتهی به 11 سپتامبر کاهش یافت.",
         image: "../assets/images/b8.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 7,
         title: "دلار در حال افزایش قدرت است.",
         image: "../assets/images/b5.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 8,
         title: "طلا پس از تصمیم فدرال رزرو، ضررهای خود را کاهش داد و زیر بالاترین رکورد خود تثبیت شد",
         image: "../assets/images/b6.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 9,
         title: "کاهش قیمت طلا پس از هشدار پاول در مورد افزایش تورم در آمریکا",
         image: "../assets/images/b9.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 10,
         title: "فدرال رزرو انتظار دارد دو کاهش نرخ بهره دیگر در سال 2025 انجام دهد.",
         image: "../assets/images/b10.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     },
     {
         id: 11,
         title: "کویت پس از تصمیم فدرال رزرو، نرخ بهره را 25 واحد پایه کاهش داد",
         image: "../assets/images/b11.jpeg",
         date: " 20/09/2025 12:22 م", view: "23196",
-        link: ""
+         link: "/pages/blog-details.html"
     }
 ];
 
