@@ -1,4 +1,4 @@
-# shams
+# Precious Metals Tracker
 
 A frontend for displaying metal prices and related news.
 
